@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "setting",
+    "pluralName": "settings",
+    "displayName": "Setting",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "site_title": {
+      "type": "string"
+    },
+    "status_on_network": {
+      "type": "enumeration",
+      "enum": [
+        "Online",
+        "Offline"
+      ],
+      "default": "Online"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "copyrights": {
+      "type": "text"
+    }
+  }
+}
