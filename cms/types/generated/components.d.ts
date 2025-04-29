@@ -11,25 +11,6 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMenu extends Struct.ComponentSchema {
-  collectionName: 'components_shared_menus';
-  info: {
-    description: '';
-    displayName: 'menu';
-    icon: 'alien';
-  };
-  attributes: {
-    display_order: Schema.Attribute.Decimal;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    parent: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<
-      ['Page Link', 'Hash Link', 'Grouping Menu']
-    >;
-    url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -85,7 +66,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.media': SharedMedia;
-      'shared.menu': SharedMenu;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
