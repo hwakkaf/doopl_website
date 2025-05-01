@@ -1,0 +1,13 @@
+1. use pgloader to fully migrate from Sqlite3 (dev env) to Posgresql (proction env)
+2. pgloader works on Linux or WSL on windows
+3. added sqlite3 tools to cms and required script entries in package.json
+4. pgloader sqlite:///mnt/e/haytham/doopl/doopl_website/cms/.tmp/data.db postgresql://doopl:doopl2025@localhost/doopl
+5. using Postgresql on Windows and pgloader on WSL:
+    - on WSL: ip route | grep default
+    - on wsl use ip a to get wsl ip address, then in windows/firewall/inbounds add a rule to allow connections from this address
+        I named the inbound rule 'WSL Allowed'
+    - get the ip address and add it to windows postgresql pg_hba.conf file:
+        host    all     		all             <ip>/16          md5
+    - restart postgresql
+    - execute:
+        pgloader sqlite:///mnt/e/haytham/doopl/doopl_website/cms/.tmp/data.db postgresql://doopl:doopl2025@172.26.80.1:5432/doopl

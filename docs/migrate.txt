@@ -1,0 +1,17 @@
+Assumptions:
+    - Tables in sqlite db and posttgresql db are identical
+function migrateSqliteToPG(sqlite file name, pg connection string)
+    1. create connections to sqlite and postgresql
+    2. get all tables in sqlite
+    3. disable constraints & triggers on postgresql
+    4. Truncate all table in PostgreSQL
+    5. for each table t in sqlite database do:
+        5.1 Get all rows from SQLite
+        5.2 Prepare PostgreSQL insert statement
+        5.3 for all data in t do:
+            5.3.1 create Values array
+            5.3.2 execute insert
+        5.4 Handle sequence for ID if exists:
+            if there's t.id and in postgresql it has an autoincrement constraint using sequence, set the current value of the sequence to max(id)+1
+    6.  Enable constraints & triggers on postgresql
+    7. Close connections

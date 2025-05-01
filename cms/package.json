@@ -15,10 +15,13 @@
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "dump:sqlite": "sqlite-tools\\sqlite3.exe .tmp/data.db .dump > .tmp/dump.sql",
-    "export:sqlite": "sqlite-tools\\sqlite3.exe .tmp/data.db \".dump --data-only\" > .tmp/dump.sql"
+    "export:sqlite": "sqlite-tools\\sqlite3.exe .tmp/data.db \".dump --data-only\" > .tmp/export.sql",
+    "migrate:postgresql": "node ./scripts/sqlite2pg.js"
+    
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.12.6",
+    "@strapi/plugin-graphql": "^5.12.7",
     "@strapi/plugin-users-permissions": "5.12.6",
     "@strapi/strapi": "5.12.6",
     "better-sqlite3": "^11.9.1",

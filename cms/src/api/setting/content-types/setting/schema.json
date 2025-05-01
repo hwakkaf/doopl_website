@@ -16,15 +16,7 @@
     }
   },
   "attributes": {
-    "site_title": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "status_on_network": {
+    "siteStatus": {
       "type": "enumeration",
       "enum": [
         "Online",
@@ -37,26 +29,11 @@
         }
       }
     },
-    "icon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "fallback404Page": {
+      "type": "string"
     },
-    "copyrights": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "underConstructionPage": {
+      "type": "string"
     }
   }
 }

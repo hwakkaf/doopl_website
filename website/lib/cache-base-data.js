@@ -88,7 +88,20 @@ export async function asyncprepareBaseData() {
     } catch { menus[s] = {} }
 
   }
+  connector = client.collection('articles');
 
+  let articles = (await connector.find({
+    populate: {
+      category: true,
+      authors: true,
+      blocks: {
+        populate: '*'
+      },
+    }
+  
+  }));
+  
+  articles = articles.data
   baseData.settings = vocab;
   baseData.vocab = settings;
   baseData.menus = menus;

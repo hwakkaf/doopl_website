@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sitemap",
     "pluralName": "sitemaps",
-    "displayName": "Sitemap"
+    "displayName": "Sitemap",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -44,6 +45,9 @@
         "Under Construction"
       ],
       "default": "Static"
+    },
+    "disabled": {
+      "type": "boolean"
     }
   }
 }

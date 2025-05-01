@@ -424,7 +424,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
+    authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     >;
@@ -464,7 +464,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
     avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -519,7 +519,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   collectionName: 'faqs';
   info: {
-    displayName: 'FAQ';
+    displayName: 'faq';
     pluralName: 'faqs';
     singularName: 'faq';
   };
@@ -527,7 +527,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    andwer: Schema.Attribute.Text & Schema.Attribute.Required;
+    answer: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -535,7 +535,9 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    question: Schema.Attribute.Text & Schema.Attribute.Required;
+    question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -554,6 +556,8 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    copyrights: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'All Rights Reserved to AFG'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -639,6 +643,50 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPageFaqPageFaq extends Struct.SingleTypeSchema {
+  collectionName: 'page_faqs';
+  info: {
+    description: '';
+    displayName: 'pageFaq';
+    pluralName: 'page-faqs';
+    singularName: 'page-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    introduction: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-faq.page-faq'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSettingSetting extends Struct.SingleTypeSchema {
   collectionName: 'settings';
   info: {
@@ -656,40 +704,24 @@ export interface ApiSettingSetting extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    copyrights: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    fallback404Page: Schema.Attribute.String;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::setting.setting'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    site_title: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    status_on_network: Schema.Attribute.Enumeration<['Online', 'Offline']> &
+    siteStatus: Schema.Attribute.Enumeration<['Online', 'Offline']> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }> &
       Schema.Attribute.DefaultTo<'Online'>;
+    underConstructionPage: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -699,6 +731,7 @@ export interface ApiSettingSetting extends Struct.SingleTypeSchema {
 export interface ApiSitemapSitemap extends Struct.CollectionTypeSchema {
   collectionName: 'sitemaps';
   info: {
+    description: '';
     displayName: 'Sitemap';
     pluralName: 'sitemaps';
     singularName: 'sitemap';
@@ -719,6 +752,7 @@ export interface ApiSitemapSitemap extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    disabled: Schema.Attribute.Boolean;
     keywords: Schema.Attribute.Blocks;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
@@ -1287,6 +1321,7 @@ declare module '@strapi/strapi' {
       'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
       'api::menu.menu': ApiMenuMenu;
+      'api::page-faq.page-faq': ApiPageFaqPageFaq;
       'api::setting.setting': ApiSettingSetting;
       'api::sitemap.sitemap': ApiSitemapSitemap;
       'api::vocab.vocab': ApiVocabVocab;
