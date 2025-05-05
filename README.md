@@ -1,5 +1,5 @@
 # Installation Guide
----
+
 ## Step 1: Clone GitHub Repository
 
 ```bash
@@ -18,3 +18,4 @@ npm install -g nodemon
 cd doopl_website
 yarn install
 ```
+---

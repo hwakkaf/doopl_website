@@ -1,5 +1,7 @@
 #haytham
 randd/
+yarn.lock
+package-lock.json
 
 .DS_Store
 Thumbs.db

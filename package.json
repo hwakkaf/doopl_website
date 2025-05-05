@@ -28,6 +28,9 @@
     "export:sqlite": "cd cms && sqlite-tools\\sqlite3.exe .tmp/data.db \".dump --data-only\" > .tmp/export.sql",
     "migrate:postgresql": "cd cms && node ./scripts/sqlite2pg.js",
 
+    "web:build": "cd website/server && ",
+    "web:deploy": "cd website/server && ",
+
     "cms": "cd cms && strapi develop",
     "cms:pg": "cd cms && yarn dev",
     "cms:sqlite": "cd cms && yarn dev",
