@@ -1,0 +1,29 @@
+{
+  "name": "website_tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwakkaf/doopl_website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hwakkaf/doopl_website/issues"
+  },
+  "homepage": "https://github.com/hwakkaf/doopl_website#readme",
+  "devDependencies": {
+    "dotenv-cli": "^8.0.0"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "yarn": "^1.22.22"
+  }
+}

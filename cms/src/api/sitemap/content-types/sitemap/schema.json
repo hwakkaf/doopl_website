@@ -34,9 +34,6 @@
     "Page": {
       "type": "string"
     },
-    "keywords": {
-      "type": "blocks"
-    },
     "access": {
       "type": "enumeration",
       "enum": [
@@ -48,6 +45,9 @@
     },
     "disabled": {
       "type": "boolean"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

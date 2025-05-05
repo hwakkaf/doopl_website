@@ -1,6 +1,6 @@
 import { strapi } from '@strapi/client';
 
-const baseData = {
+export const baseData = {
   settings: {},
   vocab: {},
   menus: {},
@@ -49,8 +49,9 @@ export async function asyncprepareBaseData() {
 
   connector = client.single('setting')
   for (let s of process.localesArray || []) {
+    locales[s] = true;
     try {
-      settings[s] = await connector.find({ locale: s }); locales[s] = true;
+      settings[s] = (await connector.find({ locale: s })).data;
     } catch { }
   }
   let keys = Object.keys(locales);
@@ -65,7 +66,7 @@ export async function asyncprepareBaseData() {
       let voc = {}
       for (let v of res.data) voc[v.name] = v.text;
       vocab[s] = voc;
-    } catch { vocab[s] = {} }
+    } catch(e) { console.log("Error getting data",e); vocab[s] = {} }
 
   }
 
@@ -75,24 +76,25 @@ export async function asyncprepareBaseData() {
       menus[s] = (await connector.find({
         locale: s,
         fields: ['hierarchy','title', 'url', 'type', 'ordering', 'invisible'],
-      }));
-      for (let m of menus[s].data) {
-        delete m.documentId;
-        delete m.id;
-        m.parent = m.hierarchy.split('.').slice(0, -1)
-        m.level = m.parent.length
-        m.parent = m.parent.join('.');
-      }
-      menus[s] = menus[s].data
+      })).data;
       menubars[s] = createHierarchy(menus[s])
-    } catch { menus[s] = {} }
+    } catch(e) { console.log("Error getting data",e); menus[s] = []; menubars[s] = {} }
 
   }
-  connector = client.collection('articles');
+  connector = client.collection('sitemaps');
+  for (let s of keys) {
+    try {
+      sitemap[s] = (await connector.find({
+        locale: s,
+      })).data;
+    } catch(e) { console.log("Error getting data",e); sitemap[s] = {} }
 
+  }
+  
+  connector = client.collection('articles');
   let articles = (await connector.find({
     populate: {
-      category: true,
+      categories: true,
       authors: true,
       blocks: {
         populate: '*'
@@ -102,8 +104,8 @@ export async function asyncprepareBaseData() {
   }));
   
   articles = articles.data
-  baseData.settings = vocab;
-  baseData.vocab = settings;
+  baseData.settings = settings;
+  baseData.vocab = vocab;
   baseData.menus = menus;
   baseData.menubars = menubars;
   baseData.sitemap = sitemap;
