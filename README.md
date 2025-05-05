@@ -16,5 +16,5 @@ npm install -g nodemon
 ## Step 3: Install all needed dependencies
 ```bash
 cd doopl_website
-yarn install:all
+yarn install
 ```
