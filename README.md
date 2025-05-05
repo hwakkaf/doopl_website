@@ -4,18 +4,17 @@
 
 ```bash
 git clone https://github.com/hwakkaf/doopl_website.git
-cd doopl_website
 ```
 
-## Step 2: Install global dependencies
+## Step 2: Install global dependencies (if not installed)
 
 ```bash
 npm install -g yarn
 npm install -g nodemon
-npm install -g docsify-cli
 ```
 
 ## Step 3: Install all needed dependencies
 ```bash
+cd doopl_website
 yarn install:all
 ```

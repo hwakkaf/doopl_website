@@ -17,7 +17,6 @@
     "dump:sqlite": "sqlite-tools\\sqlite3.exe .tmp/data.db .dump > .tmp/dump.sql",
     "export:sqlite": "sqlite-tools\\sqlite3.exe .tmp/data.db \".dump --data-only\" > .tmp/export.sql",
     "migrate:postgresql": "node ./scripts/sqlite2pg.js"
-    
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.12.6",
@@ -26,6 +25,7 @@
     "@strapi/strapi": "5.12.6",
     "better-sqlite3": "^11.9.1",
     "cross-env": "^7.0.3",
+    "dotenv-cli": "^8.0.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
     "pg": "8.8.0",

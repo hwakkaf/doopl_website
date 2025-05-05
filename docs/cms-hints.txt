@@ -11,3 +11,9 @@
     - restart postgresql
     - execute:
         pgloader sqlite:///mnt/e/haytham/doopl/doopl_website/cms/.tmp/data.db postgresql://doopl:doopl2025@172.26.80.1:5432/doopl
+6. To check postgresql last update time:
+    - Enable track_commit_timestamp:
+        1. Edit postgresql.conf:
+            track_commit_timestamp = on
+        2. restart PostgreSQL
+7. No migration should be allowed unless track_commit_timestamp is enabled on PostgreSQL

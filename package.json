@@ -6,8 +6,34 @@
   "directories": {
     "doc": "docs"
   },
+  "private": true,
+  "workspaces": [
+  "cms",
+  "website/server"
+],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "cms:build": "cd cms && strapi build",
+    "cms:console": "cd cms && strapi console",
+    "cms:deploy": "cd cms && strapi deploy",
+    "cms:dev": "cd cms && strapi develop",
+    "cms:develop": "cd cms && strapi develop",
+    "cms:seed:example": "cd cms && node ./scripts/seed.js",
+    "cms:start": "cd cms && strapi start",
+    "cms:strapi": "cd cms && strapi",
+    "cms:upgrade": "cd cms && npx @strapi/upgrade latest",
+    "cms:upgrade:dry": "cd cms && npx @strapi/upgrade latest --dry",
+    "dump:sqlite": "cd cms && sqlite-tools\\sqlite3.exe .tmp/data.db .dump > .tmp/dump.sql",
+    "export:sqlite": "cd cms && sqlite-tools\\sqlite3.exe .tmp/data.db \".dump --data-only\" > .tmp/export.sql",
+    "migrate:postgresql": "cd cms && node ./scripts/sqlite2pg.js",
+
+    "cms": "cd cms && strapi develop",
+    "cms:pg": "cd cms && yarn dev",
+    "cms:sqlite": "cd cms && yarn dev",
+    "web": "cd website/server && dotenv -e .env -- nodemon website.js",
+    "doopl": "cd website/server && dotenv -e .env.doopl -- nodemon website.js",
+    "example": "cd website/server && dotenv -e .env.example -- nodemon website.js"
   },
   "repository": {
     "type": "git",
@@ -21,9 +47,5 @@
   "homepage": "https://github.com/hwakkaf/doopl_website#readme",
   "devDependencies": {
     "dotenv-cli": "^8.0.0"
-  },
-  "dependencies": {
-    "nodemon": "^3.1.10",
-    "yarn": "^1.22.22"
   }
 }
