@@ -80,6 +80,9 @@
           "localized": true
         }
       }
+    },
+    "new_tab": {
+      "type": "boolean"
     }
   }
 }

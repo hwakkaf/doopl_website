@@ -8,13 +8,22 @@
     "description": "Define global settings"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "siteName": {
       "type": "string",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "favicon": {
       "type": "media",
@@ -24,20 +33,79 @@
         "images",
         "files",
         "videos"
-      ]
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "siteDescription": {
       "type": "text",
-      "required": true
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "defaultSeo": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.seo"
+      "component": "shared.seo",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "copyrights": {
       "type": "string",
-      "default": "All Rights Reserved to AFG"
+      "default": "All Rights Reserved to AFG",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "copyright_company": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Doopl"
+    },
+    "credit_for": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "Adonai Freelance Group"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "social_facebook": {
+      "type": "string"
+    },
+    "social_whatsapp": {
+      "type": "string"
+    },
+    "social_instagram": {
+      "type": "string"
+    },
+    "social_telegram": {
+      "type": "string"
+    },
+    "social_x": {
+      "type": "string"
     }
   }
 }

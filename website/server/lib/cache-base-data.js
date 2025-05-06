@@ -2,6 +2,7 @@ import { strapi } from '@strapi/client';
 
 export const baseData = {
   settings: {},
+  global: {},
   vocab: {},
   menus: {},
   sitemap: {},
@@ -23,10 +24,8 @@ function createHierarchy(menus) {
     menus = menus.filter(item => !item.hierarchy.startsWith(`${first.hierarchy}.`));
   }
   return menus;
-
-  
 }
-export async function asyncprepareBaseData() {
+export async function prepareBaseData() {
 
   const client = strapi({
     baseURL: process.env.CMS_BASE_URL,
@@ -39,8 +38,9 @@ export async function asyncprepareBaseData() {
   else process.localesArray = ['en']  
 
   let connector
-    , settings = {}
-    , vocab = {}
+  , settings = {}
+  , global = {}
+  , vocab = {}
     , menus = {}
     , menubars = {}
     , sitemap = {}
@@ -52,9 +52,17 @@ export async function asyncprepareBaseData() {
     locales[s] = true;
     try {
       settings[s] = (await connector.find({ locale: s })).data;
-    } catch { }
+    } catch { settings[s] = {}; }
   }
   let keys = Object.keys(locales);
+
+  connector = client.single('global');
+  for (let s of keys) {
+    try {
+      global[s] = (await connector.find({ locale: s })).data;
+    } catch(e) { console.log("Error getting data",e); global[s] = {} }
+
+  }
 
   connector = client.collection('vocabs');
   for (let s of keys) {
@@ -77,7 +85,9 @@ export async function asyncprepareBaseData() {
         locale: s,
         fields: ['hierarchy','title', 'url', 'type', 'ordering', 'invisible'],
       })).data;
-      menubars[s] = createHierarchy(menus[s])
+      let res = {}
+      for (let m of createHierarchy(menus[s])) res[m.hierarchy] = m;
+      menubars[s] = res;
     } catch(e) { console.log("Error getting data",e); menus[s] = []; menubars[s] = {} }
 
   }
@@ -105,6 +115,7 @@ export async function asyncprepareBaseData() {
   
   articles = articles.data
   baseData.settings = settings;
+  baseData.global = global;
   baseData.vocab = vocab;
   baseData.menus = menus;
   baseData.menubars = menubars;
@@ -114,5 +125,5 @@ export async function asyncprepareBaseData() {
   baseData.dir = process.env.DEFAULT_DIRECTION || 'ltr'
 }
 
-await asyncprepareBaseData()
+await prepareBaseData()
 export default baseData;

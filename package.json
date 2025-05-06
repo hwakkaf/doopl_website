@@ -34,9 +34,9 @@
     "cms": "cd cms && strapi develop",
     "cms:pg": "cd cms && yarn dev",
     "cms:sqlite": "cd cms && yarn dev",
-    "web": "cd website/server && dotenv -e .env -- nodemon website.js",
-    "doopl": "cd website/server && dotenv -e .env.doopl -- nodemon website.js",
-    "example": "cd website/server && dotenv -e .env.example -- nodemon website.js"
+    "web": "cd website/server && dotenv -e .env -- node website.js",
+    "doopl": "cd website/server && dotenv -e .env.doopl -- nodemon website.js && cd ..",
+    "example": "cd website/server && dotenv -e .env.example -- nodemon website.js && cd .."
   },
   "repository": {
     "type": "git",
