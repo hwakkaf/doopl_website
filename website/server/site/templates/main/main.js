@@ -14,7 +14,7 @@ import getData from './get-data.js';
   }
 */
 const templateMain = async (config) => {
-  let data = await getData(),
+  let data = await getData(config)
     , { vocab, settings, menubars, global, location } = config
     , keywords = (config.keywords && config.keywords.length) ? config.keywords.replace('\n',',') : ''
     , page = await import(`../../pages/${location.page}/${location.page}.js`)
@@ -62,7 +62,7 @@ const templateMain = async (config) => {
 </head>
 
 <body>
-  ${widgets.topbar({
+  ${widgets.topBar({
     vocab, global, social: menubars.social
   })}
   <!-- ======= Header ======= -->

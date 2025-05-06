@@ -1,7 +1,18 @@
 import path from 'path';
 import fs from 'fs';
 import baseData from './cache-base-data.js';
+import {prepareBaseData} from './cache-base-data.js';
 import { renderToNodeStream, renderToString } from '@popeindustries/lit-html-server';
+
+let refreshRequestTime = 0;
+
+const baseDataModels = {
+  vocab: true,
+  menu: true,
+  sitemap: true,
+  global: true,
+  setting: true,
+}
 
 export const dynamicHandlerFactory = async (location) => {
   let template;
@@ -26,6 +37,7 @@ export const dynamicHandlerFactory = async (location) => {
                 ...(baseData.info[request.lang || baseData.defaultLocale]),
                 lang: request.lang || baseData.defaultLocale,
                 dir: request.dir || baseData.defaultDir,
+                refreshRequestTime,
                 user: {
                 }
               }
@@ -80,6 +92,20 @@ export const offlineHandlerFactory = async () => {
 }
 
 export const cmsHandler = async (request, reply) => {
-  console.log("ON CMS DATA CHANGE")
   reply.status(200).type('text/html').send('OK')
+  let {body} = request;
+  let {model} = body;
+
+  if (model) {
+    if (baseDataModels[model]) {
+      //rebuild baseData
+      await prepareBaseData()
+    }
+    else {
+      // cache is obolete, all pages should refresh
+      console.log("ON CMS DATA CHANGE");
+      refreshRequestTime = Date.now();
+    }
+  }
+  
 }

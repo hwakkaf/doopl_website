@@ -9,31 +9,33 @@ const client = strapi({
 
 const namedCache = {
 
-}
+};
 
-export const getCache = async (config = [], refreshRequestTime) => {
+export const getCache = async (config = [], requestConfig) => {
   let { name, group } = config;
   let refreshTime = Date.now();
+  let {refreshRequestTime, lang} = requestConfig;
 
   if (!cacheAllowed || (!namedCache[name] || !namedCache[name].data) || (refreshRequestTime && refreshRequestTime > namedCache[name].refreshTime)) {
     namedCache[name] = {
       data: await getGroup(group),
       refreshTime,
     }
-    return namedCache[name].data;
   }
+  return namedCache[name].data;
 }
 
-export const getGroup = async (config = []) => {
+export const getGroup = async (config = [], requestConfig) => {
   let data = {};
-  if (!Array.isArray(config)) {
+  if (Array.isArray(config)) {
     for (let ent of config) {
-      if (ent && ent.entity) data[ent.entity] = ent.isSingle ? single(ent) : collection(ent);
+      ent.locale = requestConfig.lang;
+      if (ent && ent.entity) data[ent.entity] = ent.isSingle ? await single(ent) : await collection(ent);
       else console.log(ent, "\n***** Get Group error *****");
     }
     return data;
   }
-  else if (config && config.entity) return config.isSingle ? single(config) : collection(config)
+  else if (config && config.entity) return config.isSingle ? await single(config) : await collection(config)
   else {
     console.log(config, "\n***** Get Group error *****");
     return {};

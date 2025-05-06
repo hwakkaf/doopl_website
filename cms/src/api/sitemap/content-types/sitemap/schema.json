@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "pluginOptions": {
@@ -28,10 +28,10 @@
     "url": {
       "type": "string"
     },
-    "Template": {
+    "template": {
       "type": "string"
     },
-    "Page": {
+    "page": {
       "type": "string"
     },
     "access": {

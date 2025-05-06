@@ -1,5 +1,6 @@
 
 import { html } from '@popeindustries/lit-html-server';
+import { socialLinks } from './social.js';
 
 export const topBar = data => {
   let global = data?.baseData?.global || {}

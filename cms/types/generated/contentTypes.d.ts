@@ -951,10 +951,10 @@ export interface ApiSitemapSitemap extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::sitemap.sitemap'
     >;
-    Page: Schema.Attribute.String;
+    page: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    Template: Schema.Attribute.String;
-    Title: Schema.Attribute.String &
+    template: Schema.Attribute.String;
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
