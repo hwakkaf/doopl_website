@@ -17,4 +17,5 @@ export * from './contact-us.js';
 export * from './footer.js';
 export * from './services-plans.js';
 export * from './services.js';
+export * from './main-menu.js';
 
