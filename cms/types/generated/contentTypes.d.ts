@@ -695,6 +695,7 @@ export interface ApiMarketingLinkMarketingLink
   extends Struct.CollectionTypeSchema {
   collectionName: 'marketing_links';
   info: {
+    description: '';
     displayName: 'Marketing Link';
     pluralName: 'marketing-links';
     singularName: 'marketing-link';
@@ -730,6 +731,7 @@ export interface ApiMarketingLinkMarketingLink
       'api::marketing-link.marketing-link'
     >;
     newTab: Schema.Attribute.Boolean;
+    ordering: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{

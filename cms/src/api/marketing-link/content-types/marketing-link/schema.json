@@ -4,7 +4,8 @@
   "info": {
     "singularName": "marketing-link",
     "pluralName": "marketing-links",
-    "displayName": "Marketing Link"
+    "displayName": "Marketing Link",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,14 +47,18 @@
       "type": "boolean"
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "ordering": {
+      "type": "decimal"
     }
   }
 }
