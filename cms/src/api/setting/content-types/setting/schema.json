@@ -34,6 +34,23 @@
     },
     "underConstructionPage": {
       "type": "string"
+    },
+    "fallbackLanguage": {
+      "type": "string",
+      "default": "en",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "offlinePage": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

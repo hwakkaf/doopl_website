@@ -25,7 +25,7 @@
         }
       }
     },
-    "favicon": {
+    "logo": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -92,20 +92,15 @@
     "phone": {
       "type": "string"
     },
-    "social_facebook": {
-      "type": "string"
-    },
-    "social_whatsapp": {
-      "type": "string"
-    },
-    "social_instagram": {
-      "type": "string"
-    },
-    "social_telegram": {
-      "type": "string"
-    },
-    "social_x": {
-      "type": "string"
+    "favicon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

@@ -1,23 +1,31 @@
-import pkg from '@apollo/client';
-import fetch from 'cross-fetch';
+import { strapi } from '@strapi/client';
 
-const { ApolloClient, InMemoryCache, HttpLink, gql } = pkg;
-// Configure the Apollo Client
-export const gqlClient = new ApolloClient({
-  link: new HttpLink({
-    uri: process.env.CMS_GQL_URL, // 👈 Replace with your GraphQL URL
-    fetch,
-    headers: {
-        Authorization: `Bearer ${process.env.CMS_API_KEY}`,
-      },
-  
-  }),
-  cache: new InMemoryCache(),
+
+const client = strapi({
+  baseURL: process.env.CMS_BASE_URL,
+  auth: process.env.CMS_API_KEY,
 });
 
-export async function getData(gqlStatement) {
-    return gqlClient.query({gqlStatement})
+export const collection = async (config = {}) => {
+  let data;
+
+  try {
+    let connector = client.collection(config.entity);
+    return (await connector.find(config)).data;  
+  } catch(e) {
+    console.log(e,"\n***** Get collection error *****");
+    return [];
+  }
 }
 
-export { baseData } from './cache-base-data.js';
-//export gql;
+export const single = async (entity, config = {}) => {
+  try {
+    let connector = client.single(entity);
+    return (await connector.find(config)).data;  
+  } catch(e) {
+    console.log(e,"\n***** Get Single error *****");
+    return {};
+  }
+}
+
+

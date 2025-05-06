@@ -1,6 +1,6 @@
 
-export * from './topbar';
-export * from './social';
+export {topBar} from './topbar.js'
+export {socialLinks} from './social.js';
 
 // pricingPlans = require('./pricing-plans')
 // services = require('./services')

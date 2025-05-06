@@ -1,24 +1,25 @@
 
 import { html } from '@popeindustries/lit-html-server';
-// import * as widgets from '../../widgets/index.js';
-import  {topBar} from '../../widgets/topbar.js';
+import * as widgets from '../widgets';
 
 /*
   data = {
     css: fileName|['css files in /site/assets/css]
     headJS : fileName|['js files in /site/assets/js]
     tailJS : fileName|['js files in /site/assets/js]
-    extraHead: TemplateString|function(config) returning html template string with extra heads
-    extraTail: TemplateString|function(config) returning html template string with extra tail tags(jus before body closing)
-    render: TemplateString|function(config) returning page html template string with page contents
+    extraHead: TemplateString|function(pageBuildConfig) returning html template string with extra heads
+    extraTail: TemplateString|function(pageBuildConfig) returning html template string with extra tail tags(jus before body closing)
+    render: TemplateString|function(pageBuildConfig) returning page html template string with page contents
   }
 */
-const templateMain = async (config) => {
-  let { vocab, settings, global, location }= config
-    , keywords = (config.keywords && config.keywords.length) ? config.keywords.replace('\n',',') : ''
-    , page = await import(`../../pages/${location.page}/${location.page}.js`)
+module.exports = pageBuildConfig => {
+  let by = pageBuildConfig.by
+    , vocab = pageBuildConfig.vocabulary
+    , keywords = (pageBuildConfig.keywords && pageBuildConfig.keywords.length) ? pageBuildConfig.keywords.replace('\n',',') : ''
+    , data = pageBuildConfig.page
+    , settings = by('settings')[0]
+    , companyInfo = by('companyInfo')[0]
   ;
-  
 	return html`
 <!DOCTYPE html>
 <html dir=${settings.siteDirection} lang=${settings.siteLanguage}>
@@ -61,7 +62,7 @@ const templateMain = async (config) => {
 
 <body>
   ${widgets.topbar({
-    vocab, global, social: by('social')
+    vocab, companyInfo, social: by('social')
   })}
   <!-- ======= Header ======= -->
 
@@ -70,8 +71,8 @@ const templateMain = async (config) => {
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        ${global.logo? html`<img src=${global.logo} alt="">` : ''}
-        <h1>${global.name}<span>.</span></h1>
+        ${companyInfo.logo? html`<img src=${companyInfo.logo} alt="">` : ''}
+        <h1>${companyInfo.name}<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -169,7 +170,7 @@ const templateMain = async (config) => {
 
   <main id="main">
   ${widgets.pricingPlans({
-        vocab, global, plans: by('adslPrices'), description: by('adsl-prices')
+        vocab, companyInfo, plans: by('adslPrices'), description: by('adsl-prices')
       })}
 
     <!-- ======= About Us Section ======= -->
@@ -1078,5 +1079,3 @@ ${widgets.services({
 
 </html>`;
 }
-
-export default templateMain;

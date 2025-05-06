@@ -1,14 +1,10 @@
 import { strapi } from '@strapi/client';
 
 export const baseData = {
-  settings: {},
-  global: {},
-  vocab: {},
-  menus: {},
-  sitemap: {},
-  locales: {},
-  locale: process.env.DEFAULT_LOCALE || 'en',
-  dir: process.env.DEFAULT_DIRECTION || 'ltr'
+  info: {},
+  locales: null,
+  defaultLocale: process.env.DEFAULT_LOCALE || 'en',
+  defaultDir: process.env.DEFAULT_DIRECTION || 'ltr'
 };
 
 function createHierarchy(menus) {
@@ -33,7 +29,7 @@ export async function prepareBaseData() {
   });
 
   if (process.env.ALLOWED_LOCALES) {
-    process.localesArray = process.env.ALLOWED_LOCALES.split(',');
+    process.localesArray = baseData.locales = process.env.ALLOWED_LOCALES.split(',');
   }
   else process.localesArray = ['en']  
 
@@ -59,7 +55,7 @@ export async function prepareBaseData() {
   connector = client.single('global');
   for (let s of keys) {
     try {
-      global[s] = (await connector.find({ locale: s })).data;
+      global[s] = (await connector.find({ locale: s, populate: '*' })).data;
     } catch(e) { console.log("Error getting data",e); global[s] = {} }
 
   }
@@ -101,6 +97,7 @@ export async function prepareBaseData() {
 
   }
   
+  /*
   connector = client.collection('articles');
   let articles = (await connector.find({
     populate: {
@@ -114,16 +111,36 @@ export async function prepareBaseData() {
   }));
   
   articles = articles.data
-  baseData.settings = settings;
-  baseData.global = global;
-  baseData.vocab = vocab;
-  baseData.menus = menus;
-  baseData.menubars = menubars;
-  baseData.sitemap = sitemap;
-  baseData.locales = locales;
-  baseData.locale = process.env.DEFAULT_LOCALE || 'en',
-  baseData.dir = process.env.DEFAULT_DIRECTION || 'ltr'
+  */
+ for (let l of baseData.locales) {
+  baseData.info[l] = {
+    settings: settings[l],
+    global: global[l],
+    vocab: vocab[l],
+    menus: menus[l],
+    menubars: menubars[l],
+    sitemap: sitemap[l],
+  }
+ }
 }
+
+const client = strapi({
+  baseURL: process.env.CMS_BASE_URL,
+  auth: process.env.CMS_API_KEY,
+});
+
+// let connector = client.collection('articles');
+// let articles = (await connector.find({
+//   locale: 'en',
+//   populate: {
+//     categories: true,
+//     authors: true,
+//     blocks: {
+//       populate: '*'
+//     },
+//   }
+
+// }));
 
 await prepareBaseData()
 export default baseData;

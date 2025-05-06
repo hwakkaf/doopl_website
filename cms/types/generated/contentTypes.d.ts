@@ -457,32 +457,56 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     authors: Schema.Attribute.Relation<'manyToMany', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::article-category.article-category'
     >;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 80;
       }>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::article.article'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -630,14 +654,15 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
         };
       }>;
     email: Schema.Attribute.Email;
-    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    locale: Schema.Attribute.String;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
     phone: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     siteDescription: Schema.Attribute.Text &
@@ -654,11 +679,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
           localized: true;
         };
       }>;
-    social_facebook: Schema.Attribute.String;
-    social_instagram: Schema.Attribute.String;
-    social_telegram: Schema.Attribute.String;
-    social_whatsapp: Schema.Attribute.String;
-    social_x: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -807,11 +827,24 @@ export interface ApiSettingSetting extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     fallback404Page: Schema.Attribute.String;
+    fallbackLanguage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'en'>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::setting.setting'
     >;
+    offlinePage: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     siteStatus: Schema.Attribute.Enumeration<['Online', 'Offline']> &
       Schema.Attribute.SetPluginOptions<{
@@ -853,6 +886,7 @@ export interface ApiSitemapSitemap extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     disabled: Schema.Attribute.Boolean;
+    languageWisePage: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

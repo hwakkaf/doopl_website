@@ -1,10 +1,9 @@
 
 import { html } from '@popeindustries/lit-html-server';
-import { socialLinks } from './social.js';
 
 export const topBar = data => {
   let global = data?.baseData?.global || {}
-  html`
+  return html`
     <section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
@@ -14,5 +13,5 @@ export const topBar = data => {
       ${socialLinks(data)}
     </div>
   </section>
-`;
+  `;
 }
