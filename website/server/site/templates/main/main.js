@@ -1,7 +1,7 @@
 
 import { html } from '@popeindustries/lit-html-server';
-// import * as widgets from '../../widgets/index.js';
-import  {topBar} from '../../widgets/topbar.js';
+import * as widgets from '../../widgets/index.js';
+import getData from './get-data.js';
 
 /*
   data = {
@@ -14,11 +14,13 @@ import  {topBar} from '../../widgets/topbar.js';
   }
 */
 const templateMain = async (config) => {
-  let { vocab, settings, global, location }= config
+  let data = await getData(),
+    , { vocab, settings, menubars, global, location } = config
     , keywords = (config.keywords && config.keywords.length) ? config.keywords.replace('\n',',') : ''
     , page = await import(`../../pages/${location.page}/${location.page}.js`)
+    , by = _ => ({})
   ;
-  
+
 	return html`
 <!DOCTYPE html>
 <html dir=${settings.siteDirection} lang=${settings.siteLanguage}>
@@ -61,7 +63,7 @@ const templateMain = async (config) => {
 
 <body>
   ${widgets.topbar({
-    vocab, global, social: by('social')
+    vocab, global, social: menubars.social
   })}
   <!-- ======= Header ======= -->
 
@@ -70,8 +72,8 @@ const templateMain = async (config) => {
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        ${global.logo? html`<img src=${global.logo} alt="">` : ''}
-        <h1>${global.name}<span>.</span></h1>
+        ${global.logo? html`<img src=${global.logo.url} alt="">` : ''}
+        <h1>${global.companyName}<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -168,9 +170,9 @@ const templateMain = async (config) => {
   <!-- End Hero Section -->
 
   <main id="main">
-  ${widgets.pricingPlans({
-        vocab, global, plans: by('adslPrices'), description: by('adsl-prices')
-      })}
+    ${widgets.pricingPlans({
+      vocab, global, plans: by('adslPrices'), description: by('adsl-prices')
+    })}
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
