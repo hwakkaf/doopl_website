@@ -18,7 +18,7 @@ export const getCache = async (config = [], requestConfig) => {
 
   if (!cacheAllowed || (!namedCache[name] || !namedCache[name].data) || (refreshRequestTime && refreshRequestTime > namedCache[name].refreshTime)) {
     namedCache[name] = {
-      data: await getGroup(group),
+      data: await getGroup(group,requestConfig),
       refreshTime,
     }
   }
@@ -60,6 +60,16 @@ export const single = async (config = {}) => {
     console.log(e, "\n***** Get Single error *****");
     return {};
   }
+}
+
+export const getExported = async (filePath, name = 'default', type = Function) => {
+  let exported;
+  try {
+    exported = (await import(filePath))[name];
+  } catch(e) {
+    exported = type === Function? _=>'' : new type();
+  }
+  return exported
 }
 
 

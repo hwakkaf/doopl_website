@@ -1,7 +1,6 @@
 
 import { html } from '@popeindustries/lit-html-server';
 import * as widgets from '../../widgets/index.js';
-import getData from './get-data.js';
 
 /*
   data = {
@@ -14,10 +13,8 @@ import getData from './get-data.js';
   }
 */
 const templateMain = async (config) => {
-  let data = await getData(config)
-    , { vocab, settings, menubars, global, location } = config
+  let { vocab, settings, menubars, global, location } = config
     , keywords = (config.keywords && config.keywords.length) ? config.keywords.replace('\n',',') : ''
-    , page = await import(`../../pages/${location.page}/${location.page}.js`)
     , by = _ => ({})
   ;
 

@@ -3,6 +3,7 @@ import fs from 'fs';
 import baseData from './cache-base-data.js';
 import {prepareBaseData} from './cache-base-data.js';
 import { renderToNodeStream, renderToString } from '@popeindustries/lit-html-server';
+import { getCache, getExported } from '../lib/page-tools.js';
 
 let refreshRequestTime = 0;
 
@@ -37,7 +38,9 @@ export const dynamicHandlerFactory = async (location) => {
                 ...(baseData.info[request.lang || baseData.defaultLocale]),
                 lang: request.lang || baseData.defaultLocale,
                 dir: request.dir || baseData.defaultDir,
-                refreshRequestTime,
+                templateData: {},
+                page: (await import(`../site/pages/${location.page}/${location.page}.js`)).default,
+                pageData: await getCache((await import(`../site/pages/${location.page}/data-config.js`)).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale}),
                 user: {
                 }
               }

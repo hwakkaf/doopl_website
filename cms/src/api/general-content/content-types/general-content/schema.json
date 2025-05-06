@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "general_contents",
+  "info": {
+    "singularName": "general-content",
+    "pluralName": "general-contents",
+    "displayName": "General Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "hierarchy": {
+      "type": "string"
+    },
+    "ordering": {
+      "type": "decimal"
+    },
+    "title": {
+      "type": "string"
+    },
+    "brief": {
+      "type": "text"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "iconName": {
+      "type": "string"
+    },
+    "mainMedia": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

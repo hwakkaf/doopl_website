@@ -1,8 +1,4 @@
-import { getCache } from '../../../lib/page-tools.js';
-export default (requestConfig) => getCache(pageDataConfig, requestConfig);
-
-// data configuration as in Strapi client
-const pageDataConfig = {
+export default {
   name: 'templateMain', //ours
   group: [
     {

@@ -606,6 +606,50 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGeneralContentGeneralContent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'general_contents';
+  info: {
+    description: '';
+    displayName: 'General Content';
+    pluralName: 'general-contents';
+    singularName: 'general-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    brief: Schema.Attribute.Text;
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hierarchy: Schema.Attribute.String;
+    iconName: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::general-content.general-content'
+    >;
+    mainMedia: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    ordering: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -1528,6 +1572,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::faq.faq': ApiFaqFaq;
+      'api::general-content.general-content': ApiGeneralContentGeneralContent;
       'api::global.global': ApiGlobalGlobal;
       'api::marketing-link.marketing-link': ApiMarketingLinkMarketingLink;
       'api::menu.menu': ApiMenuMenu;
