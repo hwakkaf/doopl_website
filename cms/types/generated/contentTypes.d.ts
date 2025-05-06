@@ -637,6 +637,7 @@ export interface ApiGeneralContentGeneralContent
       'api::general-content.general-content'
     >;
     mainMedia: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    md: Schema.Attribute.RichText;
     media: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
