@@ -868,6 +868,50 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNarrativeNarrative extends Struct.CollectionTypeSchema {
+  collectionName: 'narratives';
+  info: {
+    description: '';
+    displayName: 'Narrative';
+    pluralName: 'narratives';
+    singularName: 'narrative';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    accessName: Schema.Attribute.String;
+    brief: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    link: Schema.Attribute.String;
+    linkAnchorText: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::narrative.narrative'
+    >;
+    narrative: Schema.Attribute.Text;
+    pages: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPageFaqPageFaq extends Struct.SingleTypeSchema {
   collectionName: 'page_faqs';
   info: {
@@ -1577,6 +1621,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::marketing-link.marketing-link': ApiMarketingLinkMarketingLink;
       'api::menu.menu': ApiMenuMenu;
+      'api::narrative.narrative': ApiNarrativeNarrative;
       'api::page-faq.page-faq': ApiPageFaqPageFaq;
       'api::setting.setting': ApiSettingSetting;
       'api::sitemap.sitemap': ApiSitemapSitemap;

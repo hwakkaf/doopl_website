@@ -1,0 +1,40 @@
+:root {
+  --greys-9: rgba(255, 255, 255, 1);
+  --greys-2: rgba(28, 28, 28, 1);
+  --regular-font-family: "Poppins", Helvetica;
+  --regular-font-weight: 400;
+  --regular-font-size: 15px;
+  --regular-letter-spacing: 0.45px;
+  --regular-line-height: 125.99999904632568%;
+  --regular-font-style: normal;
+  --desktop-button-font-family: "Inter", Helvetica;
+  --desktop-button-font-weight: 600;
+  --desktop-button-font-size: 12px;
+  --desktop-button-letter-spacing: 0.6px;
+  --desktop-button-line-height: 189.9999976158142%;
+  --desktop-button-font-style: normal;
+  --shadow-sm: 0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px
+    rgba(16, 24, 40, 0.1);
+  --variable-collection-text-muted: rgba(169, 167, 179, 1);
+  --variable-collection-background-light: rgba(241, 241, 255, 1);
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+

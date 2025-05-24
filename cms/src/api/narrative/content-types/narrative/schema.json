@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "narratives",
+  "info": {
+    "singularName": "narrative",
+    "pluralName": "narratives",
+    "displayName": "Narrative",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "accessName": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "string"
+    },
+    "title": {
+      "type": "text"
+    },
+    "brief": {
+      "type": "text"
+    },
+    "narrative": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "linkAnchorText": {
+      "type": "string"
+    }
+  }
+}

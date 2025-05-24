@@ -5,6 +5,9 @@ import { html } from '@popeindustries/lit-html-server';
 export const faq = data => {
 
   return html`
+    <style>
+      
+    </style>
     <section id="faq" class="faq">
       <div class="container" data-aos="fade-up">
 
@@ -100,5 +103,8 @@ export const faq = data => {
 
       </div>
     </section>
+    <script>
+
+    </script>
 `;
 }
