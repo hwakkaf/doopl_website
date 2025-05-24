@@ -19,14 +19,14 @@ export const dynamicHandlerFactory = async (location) => {
   let template;
   try {
     let tmpl = location.template
-    template =
+    tmpl =
       !tmpl
-        ? `../site/templates/main/main.js`
+        ? [`../site/templates/main/main.js`, `../site/templates/main/data-config.js`]
         : tmpl == 'page' || tmpl.startsWith('-')
-          ? `../site/pages/${location.page}/${location.page}.js`
-          : `../site/templates/${tmpl}/${tmpl}.js`
+          ? [`../site/pages/${location.page}/${location.page}.js`, `../site/pages/${location.page}/data-config.js`]
+          : [`../site/templates/${tmpl}/${tmpl}.js`, `../site/templates/${tmpl}/data-config.js`]
       ;
-      template = (await import(template)).default;
+      template = (await import(tmpl[0])).default;
       if (template instanceof Function) {
         return async (request, reply) => {
           return reply.status(200).type('text/html').send(
@@ -38,7 +38,7 @@ export const dynamicHandlerFactory = async (location) => {
                 ...(baseData.info[request.lang || baseData.defaultLocale]),
                 lang: request.lang || baseData.defaultLocale,
                 dir: request.dir || baseData.defaultDir,
-                templateData: {},
+                templateData: await getCache((await import(tmpl[1])).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale}),
                 page: (await import(`../site/pages/${location.page}/${location.page}.js`)).default,
                 pageData: await getCache((await import(`../site/pages/${location.page}/data-config.js`)).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale}),
                 user: {
