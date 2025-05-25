@@ -3,7 +3,7 @@ import { strapi } from '@strapi/client';
 const cacheAllowed = process?.env?.WEBSITE_ALLOW_CACHE?.toLowerCase() === 'true' || process?.env?.WEBSITE_ALLOW_CACHE?.toLowerCase() === 'on';
 
 const client = strapi({
-  baseURL: process.env.CMS_BASE_URL,
+  baseURL: process.env.CMS_API_URL,
   auth: process.env.CMS_API_KEY,
 });
 

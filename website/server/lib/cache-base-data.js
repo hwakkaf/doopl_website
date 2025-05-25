@@ -24,7 +24,7 @@ function createHierarchy(menus) {
 export async function prepareBaseData() {
 
   const client = strapi({
-    baseURL: process.env.CMS_BASE_URL,
+    baseURL: process.env.CMS_API_URL,
     auth: process.env.CMS_API_KEY,
   });
 
@@ -125,7 +125,7 @@ export async function prepareBaseData() {
 }
 
 const client = strapi({
-  baseURL: process.env.CMS_BASE_URL,
+  baseURL: process.env.CMS_API_URL,
   auth: process.env.CMS_API_KEY,
 });
 

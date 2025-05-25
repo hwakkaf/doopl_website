@@ -28,6 +28,7 @@ html,
 body {
   margin: 0px;
   height: 100%;
+  font-family: var(--doopl-main-font);
 }
 /* a blue color as a generic focus style */
 button:focus-visible {
@@ -38,3 +39,27 @@ a {
   text-decoration: none;
 }
 
+:root {
+    --doopl-color-primary: rgba(10, 10, 245, 1); /*#0A0AF5*/
+  --doopl-color-secondary: rgba(18, 10, 45, 1); /*#120A2D*/
+
+  --doopl-main-font: -apple-system, BlinkMacSystemFont, 
+               'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+               'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --doopl-body-padding-inline: 43.44rem;
+  --doopl-body-padding-block: 36rem;
+
+  --doopl-header-padding-inline-start: 31.56rem; /*calc (75rem - 43.44rem);*/
+  --doopl-header-height: 85rem;
+  --doopl-button-padding-inline: 27.5px;
+  --doopl-button-download-padding-block: 13.547px;
+  --doopl-button-link-padding-block: 13.5px;
+  --doopl-button-background: var(--doopl-color-primary);
+  --doopl-button-border-radius: 12px;
+  --doopl-button-opacity-hover: 0.85;
+  --doopl-button-font-family: var(--doopl-main-font);--doopl-button-font-family: var(--doopl-main-font);
+  --doopl-button-font-weight: 500;
+  --doopl-button-download-font-size: 15px;
+  --doopl-button-link-font-size: 18px;
+}

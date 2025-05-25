@@ -1,0 +1,84 @@
+html {
+  font-size: calc(100vw / 1440); /* fully fluid implementation */
+  font-size: 1px; /* no fluid implementation */
+}
+
+body {
+  margin: 0;
+  background-color: var(---doopl-color-secondary,rgba(18, 10, 45, 1));
+  padding: var(--doopl-body-padding-block) var(--doopl-body-padding-inline);
+  transition: font-family 0.3s ease;
+  font-display: swap;
+}
+
+
+.ellipse-header {
+    position: absolute;
+    width: 862.89rem;
+    height: 532.47rem;
+    top: -183.38rem;
+    left: -248.82rem;
+    border-radius: 431.45rem/266.24rem;
+    transform: rotate(-45deg);
+    filter: blur(50px);
+    background: linear-gradient(
+    180deg,
+    rgba(10, 10, 245, 0.75) 13%,
+    rgba(133, 133, 250, 0.38) 49%,
+    rgba(238, 234, 248, 0.08) 94%
+  );
+}
+
+.header {
+  font-size: 24px;
+  padding-inline-start: var(--doopl-header-padding-inline-start);
+  color: white;
+  height: var(--doopl-header-height)
+}
+
+.doopl-button {
+  background: var(--doopl-button-background);
+  color: white;
+  border-radius: var(--doopl-button-border-radius);
+  border: none;
+  padding-inline: var(--doopl-button-padding-inline);
+  font-family: var(--doopl-button-font-family);
+  font-weight: var(--doopl-button-font-weight);
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.0282em;
+  line-height: 1.26em;
+}
+
+.download-button {
+    padding-block: var(--doopl-button-download-padding-block);
+  font-size: var(--doopl-button-download-font-size);
+}
+
+.link-button {
+    padding-block: var(--doopl-button-link-padding-block);
+  font-size: var(--doopl-button-link-font-size);
+}
+
+.doopl-button:hover {
+  opacity: var(--doopl-button-opacity-hover);
+}
+
+.header-download-button {
+  margin-block-start: 20rem;
+}
+.header-menu {
+  font-family: var(--doopl-button-font-family);
+  font-size: var(--doopl-button-download-font-size);
+  font-weight: var(--doopl-button-font-weight);
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.005em;
+  line-height: 1.9em;
+  vertical-align: top;
+  margin-block-start: 29rem;
+}
+
+.header-logo {
+  margin-block-start: 18rem;
+}

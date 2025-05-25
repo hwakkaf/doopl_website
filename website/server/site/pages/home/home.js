@@ -1,1 +1,1 @@
-export default _=> 'ok'
+export default _=> html`ok`
