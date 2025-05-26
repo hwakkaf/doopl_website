@@ -1,18 +1,40 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("./theme.css");
+@import url("./layouts.css");
+@import url("./widgets.css");
+@import url("./typography.css");
+@import url("./button.css");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
 html {
+  margin: 0;
+  /* height: 100%; */
   font-size: calc(100vw / 1440); /* fully fluid implementation */
   font-size: 1px; /* no fluid implementation */
 }
 
 body {
+  font-size: 15rem;
   margin: 0;
+  /* height: 100%; */
   background-color: var(---doopl-color-secondary,rgba(18, 10, 45, 1));
+  color: var(--doopl-color-text-on-secondary, white);
   padding: var(--doopl-body-padding-block) var(--doopl-body-padding-inline);
   transition: font-family 0.3s ease;
   font-display: swap;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
 
-.ellipse-header {
+/* DOOPL STYLES */
+.ellipse-top {
     position: absolute;
     width: 862.89rem;
     height: 532.47rem;
@@ -29,56 +51,44 @@ body {
   );
 }
 
-.header {
-  font-size: 24px;
-  padding-inline-start: var(--doopl-header-padding-inline-start);
-  color: white;
-  height: var(--doopl-header-height)
+.ellipse-bottom {
+    position: absolute;
+    width: 862.89rem;
+    height: 532.47rem;
+    bottom: 0;
+    left: 0;
+}
+.ellipse-bottom:before {
+  content: "JJJJJ";
+  background-size: cover;
+    position: absolute;
+    width: 862.89rem;
+    height: 532.47rem;
+    bottom: -183.38rem;
+    left: -248.82rem;
+    border-radius: 431.45rem/266.24rem;
+    transform: rotate(-135deg);
+    filter: blur(50px);
+    background: linear-gradient(
+    180deg,
+    rgba(10, 10, 245, 0.75) 13%,
+    rgba(133, 133, 250, 0.38) 49%,
+    rgba(238, 234, 248, 0.08) 94%
+  );
 }
 
-.doopl-button {
-  background: var(--doopl-button-background);
-  color: white;
-  border-radius: var(--doopl-button-border-radius);
-  border: none;
-  padding-inline: var(--doopl-button-padding-inline);
-  font-family: var(--doopl-button-font-family);
-  font-weight: var(--doopl-button-font-weight);
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: 0.0282em;
-  line-height: 1.26em;
+.blurred-spot-top {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.download-button {
-    padding-block: var(--doopl-button-download-padding-block);
-  font-size: var(--doopl-button-download-font-size);
+.blurred-spot-bottom {
+  position: absolute;
+  bottom: calc( 0rem - var(--doopl-body-padding-block));
+  left: calc( 0rem - var(--doopl-body-padding-inline));
 }
 
-.link-button {
-    padding-block: var(--doopl-button-link-padding-block);
-  font-size: var(--doopl-button-link-font-size);
-}
-
-.doopl-button:hover {
-  opacity: var(--doopl-button-opacity-hover);
-}
-
-.header-download-button {
-  margin-block-start: 20rem;
-}
-.header-menu {
-  font-family: var(--doopl-button-font-family);
-  font-size: var(--doopl-button-download-font-size);
-  font-weight: var(--doopl-button-font-weight);
-  text-transform: uppercase;
-  cursor: pointer;
-  letter-spacing: 0.005em;
-  line-height: 1.9em;
-  vertical-align: top;
-  margin-block-start: 29rem;
-}
-
-.header-logo {
-  margin-block-start: 18rem;
+.footer-container {
+  position: relative;
 }

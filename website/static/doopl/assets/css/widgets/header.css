@@ -1,0 +1,39 @@
+.header {
+  position: relative;
+  font-size: 24px;
+  padding-inline-start: var(--doopl-header-padding-inline-start);
+  color: white;
+  height: var(--doopl-header-height);
+  column-gap: 30px;
+}
+
+.header-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.header-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-grow: 1;
+  padding-inline-start: 163.64rem;
+}
+
+.header-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.header-logo {
+  margin-block-start: 18rem;
+}
+
+.header-download-button {
+  margin-block-start: 20rem;
+}

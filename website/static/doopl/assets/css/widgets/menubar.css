@@ -1,0 +1,74 @@
+.navbar {
+
+}
+
+/* MENUS */
+.menu {
+  column-gap: var(--doopl-menu-item-gap);
+  font-family: var(--doopl-menu-font-family);
+  font-size: var(--doopl-menu-font-size);
+  font-weight: var(--doopl-menu-font-weight);
+  cursor: pointer;
+  letter-spacing: var(--doopl-menu-letter-spacing);
+  line-height: var(--doopl-menu-line-height);
+  vertical-align: var(--doopl-menu-vertical-align);
+  background: var(--doopl-menu-background);
+  white-space: nowrap;
+}
+
+.menu-deep {
+}
+
+.menu-deeper {
+}
+
+
+/* MENU ITEMS */
+.menu-item-with-submenu {
+  cursor: pointer;
+}
+
+.menu-item {}
+
+.menu-item .menu-item-text{
+  text-transform: var(--doopl-menu-text-uppercase);
+  color: var(--doopl-menu-text-color);
+}
+
+.menu-open-indicator {}
+
+
+/* HORINAL FORMATION MENUBARS */
+.horizontal-navbar {
+
+}
+
+.horizontal-menu.menu-root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: top;
+
+  margin-block-start: 29rem;
+  
+}
+
+.horizontal-menu-item.menu-item-with-submenu .menu-submenu {
+  display: none;
+}
+
+.horizontal-menu-item.menu-item-with-submenu[open] .menu-submenu,
+.horizontal-menu-item.menu-item-with-submenu:hover .menu-submenu {
+  display: flex;
+}
+
+.horizontal-menu.menu-submenu {
+  flex-direction: column;
+
+}
+.horizontal-menu-item {}
+
+.horizontal-menu-item .menu-item-text{
+  text-transform: var(--doopl-menu-horizontal-text-uppercase);
+}
+.horizontal-menu-open-indicator {}

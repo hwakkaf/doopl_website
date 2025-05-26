@@ -1,0 +1,8 @@
+.action-button {
+  font-family: var(--doopl-strong-font-family);
+  font-weight: var(--doopl-strong-font-weight);
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.0282em;
+  line-height: 1.26em;
+}

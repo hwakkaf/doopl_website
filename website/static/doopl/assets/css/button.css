@@ -1,0 +1,33 @@
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+.doopl-button {
+  background: var(--doopl-button-background);
+  color: var(--doopl-button-text-color);
+  border-radius: var(--doopl-button-border-radius);
+  border: none;
+  padding-inline: var(--doopl-button-padding-inline);
+  font-family: var(--doopl-button-font-family);
+  font-weight: var(--doopl-button-font-weight);
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.0282em;
+  line-height: 1.26em;
+}
+
+.action-button {
+  padding-block: var(--doopl-button-action-padding-block);
+  font-size: var(--doopl-button-action-font-size);
+}
+
+.link-button {
+  padding-block: var(--doopl-button-link-padding-block);
+  font-size: var(--doopl-button-link-font-size);
+}
+
+.doopl-button:hover {
+  opacity: var(--doopl-button-opacity-hover);
+}
+

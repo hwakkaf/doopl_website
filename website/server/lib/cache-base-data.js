@@ -68,7 +68,10 @@ export async function prepareBaseData() {
         sort: 'name',
       });
       let voc = {}
-      for (let v of res.data) voc[v.name] = v.text;
+      for (let v of res.data) {
+        let name = v.name?.replace(/-/g,' ');
+        voc[v.name] = v.text;
+      }
       vocab[s] = voc;
     } catch(e) { console.log("Error getting data",e); vocab[s] = {} }
 
