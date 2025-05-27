@@ -1,15 +1,13 @@
 .header {
   position: relative;
   font-size: 24px;
-  /* padding-inline-start: var(--doopl-header-padding-inline-start);
-  padding-inline-start: var(--doopl-header-padding-inline-start); */
   color: white;
-  height: var(--doopl-header-height);
+  height: var(--doopl-header-height,85px);
   column-gap: 30px;
-  margin-inline-start: 75px;
-  margin-inline-end: 41.88px;
-  margin-block-start: 36px;
-  margin-block-end: 120.32px;
+  margin-inline-start: var(--doopl-header-margin-inline-start,16px);
+  margin-inline-end: var(--doopl-header-margin-inline-end,16px);
+  margin-block-start: var(--doopl-header-margin-block-start,16px);
+  margin-block-end: var(--doopl-header-margin-block-end,16px);
 }
 
 .header-start {
@@ -25,7 +23,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
-  padding-inline-start: 163.64rem;
+  padding-inline-start: var(--doopl-header-center-padding-inline-start,163.64px);
+}
+
+.header .menu-navbar-horizontal {
+  margin-block-start: var(--doopl-header-menu-margin-block-start,38.667px);
 }
 
 .header-end {
@@ -36,10 +38,10 @@
 }
 
 .header-logo {
-  margin-block-start: 18rem;
+  margin-block-start: var(--doopl-header-logo-margin-block-start,18rem);
 }
 
 .header-download-button {
-  margin-block-start: 20rem;
-  margin-inline-start: 28.12px;
+  margin-block-start: var(--doopl-header-download-margin-block-start,20rem);
+  margin-inline-start: var(--doopl-header-download-margin-inline-start,28.12px);
 }

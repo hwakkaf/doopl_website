@@ -1,9 +1,39 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("./theme.css");
-@import url("./layouts.css");
-@import url("./widgets.css");
-@import url("./typography.css");
-@import url("./button.css");
+
+:root {
+
+    /*  responsive header */
+    --doopl-top-ellipse-width: 48.8889vw; /* 704px, 48.8889vw */
+    --doopl-top-ellipse-height: 36.5278vw; /* 526px, 36.5278vw */
+    --doopl-bottom-ellipse-width: 58.3333vw; /* 840px, 58.3333vw */
+    --doopl-bottom-ellipse-height: 27.9167vw; /* 402px, 27.9167vw */
+
+    --doopl-top-ellipse-width: 704rem; /* 704px, 48.8889vw */
+    --doopl-top-ellipse-height: 526rem; /* 526px, 36.5278vw */
+    --doopl-bottom-ellipse-width: 840rem; /* 840px, 58.3333vw */
+    --doopl-bottom-ellipse-height: 402rem; /* 402px, 27.9167vw */
+
+    /* BODY PADDING UNUSED NOW*/
+    --doopl-body-padding-inline: 43.44rem;
+    --doopl-body-padding-block: 36rem;
+    --doopl-body-padding-inline: 0;
+    --doopl-body-padding-block: 0;
+
+    /* HEADER */
+    --doopl-header-height: 85px;
+
+    --doopl-header-margin-inline-start: clamp(30px,75rem,75px);
+    --doopl-header-margin-inline-end: clamp(24px,41.88rem,41.88px);;
+    --doopl-header-margin-block-start: 36px;
+    --doopl-header-margin-block-end: 120.32px;
+
+    --doopl-header-menu-margin-block-start: 29rem;
+    --doopl-header-center-padding-inline-start: 163.64rem;
+    --doopl-header-logo-margin-block-start: 18rem;
+    --doopl-header-download-margin-block-start: 20rem;
+    --doopl-header-download-margin-inline-start: 28.12px;
+
+}
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -14,11 +44,11 @@ html {
   margin: 0;
   /* height: 100%; */
   font-size: calc(100vw / 1440); /* fully fluid implementation */
-  font-size: 1px; /* no fluid implementation */
+  /*font-size: 1px;  no fluid implementation */
 }
 
 body {
-  font-size: 15rem;
+  font-size: 15px;
   margin: 0;
   /* height: 100%; */
   background-color: var(---doopl-color-secondary,rgba(18, 10, 45, 1));
@@ -50,6 +80,8 @@ a:hover {
   position: absolute;
   top: 0;
   left: 0;
+  width: var(--doopl-top-ellipse-width);
+  height: var(--doopl-top-ellipse-height);
 }
 
 .blurred-spot-bottom {
@@ -58,6 +90,9 @@ a:hover {
   left: calc( 0rem - var(--doopl-body-padding-inline));
   bottom: 0;
   left: 0;
+  width: var(--doopl-bottom-ellipse-width);
+  height: var(--doopl-bottom-ellipse-height);
+
 }
 
 .bottom-container {

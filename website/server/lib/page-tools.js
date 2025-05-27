@@ -1,4 +1,5 @@
 import { strapi } from '@strapi/client';
+import helpers from './helpers.js';
 
 const cacheAllowed = process?.env?.WEBSITE_ALLOW_CACHE?.toLowerCase() === 'true' || process?.env?.WEBSITE_ALLOW_CACHE?.toLowerCase() === 'on';
 
@@ -11,51 +12,82 @@ const namedCache = {
 
 };
 
-export const getCache = async (config = [], requestConfig) => {
-  let { name, group } = config;
+export const getCache = async (config = {}, requestConfig) => {
+  let { name } = config;
+  if (!name || !config.entities) {
+    console.log(config, "\n***** Get Cache error ***** Data config is null or empty");
+    return {};
+
+  }
   let refreshTime = Date.now();
   let {refreshRequestTime, lang} = requestConfig;
+  if(!lang) requestConfig.lang = lang = 'en';
+  let nc;
+  if (!namedCache[lang]) nc = namedCache[lang] = {};
+  else nc = namedCache[lang];
 
-  if (!cacheAllowed || (!namedCache[name] || !namedCache[name].data) || (refreshRequestTime && refreshRequestTime > namedCache[name].refreshTime)) {
-    namedCache[name] = {
-      data: await getGroup(group,requestConfig),
+  if (!cacheAllowed || (!nc[name] || !nc[name].data) || (refreshRequestTime && refreshRequestTime > nc[name].refreshTime)) {
+    nc[name] = {
+      data: await getGroup(config,requestConfig),
       refreshTime,
     }
   }
-  return namedCache[name].data;
+  return nc[name].data;
 }
 
-export const getGroup = async (config = [], requestConfig) => {
+export const getGroup = async (config = {}, requestConfig) => {
+  let { entities } = config;
+
   let data = {};
-  if (Array.isArray(config)) {
-    for (let ent of config) {
-      ent.locale = requestConfig.lang;
-      if (ent && ent.entity) data[ent.entity] = ent.isSingle ? await single(ent) : await collection(ent);
-      else console.log(ent, "\n***** Get Group error *****");
-    }
-    return data;
-  }
-  else if (config && config.entity) return config.isSingle ? await single(config) : await collection(config)
-  else {
-    console.log(config, "\n***** Get Group error *****");
+  if(!entities || (Array.isArray(entities) && !entities.length)) {
+    console.log(config, "\n***** Get Group error ***** Entities array is null or empty");
     return {};
   }
+  if (!Array.isArray(entities)) entities = [entities];
+  for (let entity of entities) {
+    entity.locale = requestConfig.lang;
+    
+    
+
+    if (entity && entity.name) {
+      if (entity.isSingle) data[entity.name] = await single(entity);
+      else {
+        let { field, deep} = entity.objectify??{};
+        if (field) {
+          // converting data array to key/value object with field value as the key for each data item,
+          // with the possibility to create deep nested object if field is dot seperated name
+          let result = {}
+            , transform = (deep || deep === undefined)? f => helpers.toCamelCase(f).split('.') : f => [helpers.toCamelCase(f)]
+            ;
+          for (let d of await collection(entity)) {
+            let accessName = transform(d[field] || 'wrongAccessField');
+            
+
+          }
+          data[entity.name] = result;
+        }
+        else data[entity.name] = await collection(entity);
+      }
+    }
+    else console.log(entity, "\n***** Get Group error ***** Entity is either null or has no name attached");
+  }
+  return data;
 }
 
-export const collection = async (config = {}) => {
+export const collection = async (entity = {}) => {
   try {
-    let connector = client.collection(config.entity);
-    return (await connector.find(config)).data;
+    let connector = client.collection(entity.name);
+    return (await connector.find(entity)).data;
   } catch (e) {
     console.log(e, "\n***** Get collection error *****");
     return [];
   }
 }
 
-export const single = async (config = {}) => {
+export const single = async (entity = {}) => {
   try {
-    let connector = client.single(config.entity);
-    return (await connector.find(config)).data;
+    let connector = client.single(entity.name);
+    return (await connector.find(entity)).data;
   } catch (e) {
     console.log(e, "\n***** Get Single error *****");
     return {};

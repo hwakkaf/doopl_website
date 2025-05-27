@@ -9,6 +9,7 @@
   column-gap: 50.13px;
   row-gap: 16.39px;
   max-width: 90%;
+  z-index: 1;
 }
 
 .footer-start-doopl {
@@ -44,6 +45,7 @@
   min-height: 40px;
   column-gap: 13px;
   row-gap: 21.39px;
+  z-index: 1;
 }
 .footer-end {
   padding-block-start: 56.56px;

@@ -36,11 +36,11 @@ export const dynamicHandlerFactory = async (location) => {
                 params: request.params,
                 location,
                 ...(baseData.info[request.lang || baseData.defaultLocale]),
-                lang: request.lang || baseData.defaultLocale,
-                dir: request.dir || baseData.defaultDir,
-                templateData: await getCache((await import(tmpl[1])).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale}),
+                lang: request.lang || baseData.defaultLocale || 'en',
+                dir: request.dir || baseData.defaultDir || 'ltr',
+                templateData: await getCache((await import(tmpl[1])).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale || 'en'}),
                 page: (await import(`../site/pages/${location.page}/${location.page}.js`)).default,
-                pageData: await getCache((await import(`../site/pages/${location.page}/data-config.js`)).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale}),
+                pageData: await getCache((await import(`../site/pages/${location.page}/data-config.js`)).default, {refreshRequestTime, lang: request.lang || baseData.defaultLocale || 'en'}),
                 user: {
                 }
               }
