@@ -1,7 +1,7 @@
 export default class Helpers {
 
-  static toTextCase(str = "none") {
-    if (!str || typeof str !== 'string') return 'Empty String';
+  static toTextCase(str) {
+    if (!str || typeof str !== 'string') return '';
     return str
     // Replace all underscores and hyphens with spaces
     .replace(/[_-]/g, ' ')
@@ -14,8 +14,8 @@ export default class Helpers {
     .replace(/\s+/g, ' ');
   }
 
-  static toSnakeCase(str = "none") {
-    if (!str || typeof str !== 'string') return 'empty_str'
+  static toSnakeCase(str) {
+    if (!str || typeof str !== 'string') return '';
     return str
     // Replace all underscores and hyphens with spaces
     .replace(/[-]/g, '_')
@@ -30,8 +30,8 @@ export default class Helpers {
 
   }
 
-  static toCamelCase(str = "none") {
-    if (!str || typeof str !== 'string') return 'empty_str'
+  static toCamelCase(str) {
+    if (!str || typeof str !== 'string') return '';
     return str
     // Trim any leading/trailing spaces and collapse multiple spaces
     .trim()
@@ -42,14 +42,20 @@ export default class Helpers {
     .replace(/^[A-Z]/, (firstChar) => firstChar.toLowerCase())
   }
 
-  static toKebabCase(str = "none") {
-    if (!str || typeof str !== 'string') return 'empty-str'
+  static toKebabCase(str) {
+    if (!str || typeof str !== 'string') return '';
 
   }
 
-  static toPascalCase(str = "none") {
-    if (!str || typeof str !== 'string') return 'EmptyString'
+  static toPascalCase(str) {
+    if (!str || typeof str !== 'string') return ';'
 
+  }
+  
+  static capitalize(str) {
+    if (!str || typeof str !== 'string') return '';
+    str = str.toLowerCase();
+    str[0] = str[0].toUpperCase();
   }
 
 }

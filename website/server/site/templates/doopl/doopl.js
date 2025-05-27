@@ -96,7 +96,7 @@ const templateDooplMain = async (config) => {
 
   </div>
     
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/doopl.js"></script>
 
 </body>
 

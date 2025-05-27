@@ -43,6 +43,8 @@ export async function prepareBaseData() {
     , sitemap = {}
     , locales = {}
     , links = {}
+    , languages = {}
+    , cities = {}
   ;
 
 
@@ -116,6 +118,7 @@ export async function prepareBaseData() {
     } catch(e) { console.log(e,"Error getting [menus], language: ",s); menus[s] = []; menubars[s] = {} }
 
   }
+
   connector = client.collection('sitemaps');
   for (let s of keys) {
     try {
@@ -126,6 +129,33 @@ export async function prepareBaseData() {
 
   }
   
+  connector = client.collection('languages');
+  for (let s of keys) {
+    try {
+      languages[s] = (await connector.find({
+        locale: s,
+        sort: ['ordering', 'name'],
+        populate: {icon: true}
+      })).data;
+      for (let l of languages[s]) l.displayName = `${l.name} (${l.code})`
+    } catch(e) { console.log(e,"Error getting [languages], language: ",s); languages[s] = {} }
+
+  }
+
+  connector = client.collection('country-cities');
+  for (let s of keys) {
+    try {
+      cities[s] = (await connector.find({
+        locale: s,
+        sort: ['ordering', 'city', 'country'],
+        populate: {icon: true}
+      })).data;
+
+      for (let l of cities[s]) l.displayName = l.city? `${l.city}, ${l.country}` : l.country
+    } catch(e) { console.log(e,"Error getting [cities], language: ",s); cities[s] = {} }
+
+  }
+
   /*
   connector = client.collection('articles');
   let articles = (await connector.find({
@@ -150,6 +180,8 @@ export async function prepareBaseData() {
     menubars: menubars[l],
     sitemap: sitemap[l],
     links: links[l],
+    languages: languages[l],
+    cities: cities[l],
   }
  }
 }

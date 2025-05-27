@@ -42,6 +42,8 @@
   padding-block-end: 38.47px;
   padding-block-start: 55px;
   min-height: 40px;
+  column-gap: 13px;
+  row-gap: 21.39px;
 }
 .footer-end {
   padding-block-start: 56.56px;

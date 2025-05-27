@@ -34,7 +34,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  /* width: 100%; */
   margin: 5px 0 0;
   padding: 0;
   border: 1px solid #ddd;
@@ -44,7 +44,7 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: none;
   z-index: 10;
-  max-height: 300px;
+  max-height: 200px;
   overflow-y: auto;
 }
 
@@ -53,6 +53,7 @@
   padding: 10px 15px;
   color: #333;
   text-decoration: none;
+  width: max-content;
 }
 
 .select-option:hover {

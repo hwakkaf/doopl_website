@@ -35,8 +35,8 @@ export const footer = data => {
       </div>
     </div>
     <div class="footer-center flex-hor-st-st">
-      ${select()}
-      
+      ${select({data: data.languages, current: 'English (En)'})}
+      ${select({data: data.cities, current: 'Victoria, Australia'})}
     </div>
     <div class="footer-end flex-hor-sb-ce flex-wrap">
       <span class="narrative-very-small">${global.copyrights}</span>

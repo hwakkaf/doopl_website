@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_cities",
+  "info": {
+    "singularName": "country-city",
+    "pluralName": "country-cities",
+    "displayName": "Country city",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ordering": {
+      "type": "decimal",
+      "default": 0
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}
