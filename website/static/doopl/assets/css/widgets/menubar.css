@@ -1,4 +1,4 @@
-.navbar {
+.menu-navbar {
 
 }
 
@@ -39,11 +39,11 @@
 
 
 /* HORINAL FORMATION MENUBARS */
-.horizontal-navbar {
+.menu-navbar-horizontal {
 
 }
 
-.horizontal-menu.menu-root {
+.menu-horizontal.menu-root {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,22 +53,22 @@
   
 }
 
-.horizontal-menu-item.menu-item-with-submenu .menu-submenu {
+.menu-item-horizontal.menu-item-with-submenu .menu-submenu {
   display: none;
 }
 
-.horizontal-menu-item.menu-item-with-submenu[open] .menu-submenu,
-.horizontal-menu-item.menu-item-with-submenu:hover .menu-submenu {
+.menu-item-horizontal.menu-item-with-submenu[open] .menu-submenu,
+.menu-item-horizontal.menu-item-with-submenu:hover .menu-submenu {
   display: flex;
 }
 
-.horizontal-menu.menu-submenu {
+.menu-horizontal.menu-submenu {
   flex-direction: column;
 
 }
-.horizontal-menu-item {}
+.menu-item-horizontal {}
 
-.horizontal-menu-item .menu-item-text{
+.menu-item-horizontal .menu-item-text{
   text-transform: var(--doopl-menu-horizontal-text-uppercase);
 }
-.horizontal-menu-open-indicator {}
+.menu-open-indicator-horizontal {}

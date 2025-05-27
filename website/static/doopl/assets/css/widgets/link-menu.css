@@ -1,0 +1,67 @@
+.link-menu-navbar {
+
+}
+
+/* MENUS */
+.link-menu {
+  column-gap: var(--doopl-link-menu-column-gap);
+  row-gap: var(--doopl-link-menu-row-gap);
+  font-family: var(--doopl-link-menu-font-family);
+  font-size: var(--doopl-link-menu-font-size);
+  font-weight: var(--doopl-link-menu-font-weight);
+  cursor: pointer;
+  letter-spacing: var(--doopl-link-menu-letter-spacing);
+  line-height: var(--doopl-link-menu-line-height);
+  vertical-align: var(--doopl-link-menu-vertical-align);
+  background: var(--doopl-link-menu-background);
+  white-space: nowrap;
+}
+
+.link-menu-item {}
+
+.link-menu-item .link-menu-item-text {
+  text-transform: var(--doopl-link-menu-text-uppercase);
+  color: var(--doopl-link-menu-text-color);
+}
+
+/* HORIZONTAL FORMATION LINK MENUS */
+.link-menu-navbar-horizontal {
+
+}
+
+.link-menu-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;  
+}
+
+.link-menu-item-horizontal {}
+
+.link-menu-item-horizontal .link-menu-item-text{
+  text-transform: var(--doopl-link-menu-horizontal-text-uppercase, var(--doopl-link-menu-text-uppercase, capitalize));
+}
+
+.menu-item-horizontal .link-menu-item-icon{
+}
+
+/* VERTICAL FORMATION LINK MENUS */
+.link-menu-navbar-vertical {
+
+}
+
+.link-menu-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;  
+}
+
+.link-menu-item-vertical {}
+
+.link-menu-item-vertical .link-menu-item-text{
+  text-transform: var(--doopl-link-menu-vertical-text-uppercase, var(--doopl-link-menu-text-uppercase, capitalize));
+}
+
+.menu-item-vertical .link-menu-item-icon{
+}

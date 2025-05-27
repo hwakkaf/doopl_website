@@ -69,11 +69,11 @@ const templateDooplMain = async (config) => {
     </defs>
   </svg>
   ${widgets.header(config)}
-  <h1 style="min-height: 2500px; font-size: 48px; color: white;">JUST BELOW HEADER</h1>
-  <main>
-
+  <h1 style="display: none; min-height: 2500px; font-size: 48px; color: white;">JUST BELOW HEADER</h1>
+  <main class="flex-ver-st-ce">
+    <div class="card-container"></div>
   </main>
-  <div class="footer-container">
+  <div class="bottom-container">
     ${widgets.footer(config)}
 
     <svg class="blurred-spot-bottom" width="840" height="402" viewBox="0 0 840 402" fill="none" xmlns="http://www.w3.org/2000/svg">

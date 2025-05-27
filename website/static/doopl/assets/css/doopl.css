@@ -26,57 +26,26 @@ body {
   padding: var(--doopl-body-padding-block) var(--doopl-body-padding-inline);
   transition: font-family 0.3s ease;
   font-display: swap;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  min-height: 100vh;
 }
 
+main {
+  flex-grow: 1;
+}
 a {
   text-decoration: none;
   color: white;
 }
 
-/* DOOPL STYLES */
-.ellipse-top {
-    position: absolute;
-    width: 862.89rem;
-    height: 532.47rem;
-    top: -183.38rem;
-    left: -248.82rem;
-    border-radius: 431.45rem/266.24rem;
-    transform: rotate(-45deg);
-    filter: blur(50px);
-    background: linear-gradient(
-    180deg,
-    rgba(10, 10, 245, 0.75) 13%,
-    rgba(133, 133, 250, 0.38) 49%,
-    rgba(238, 234, 248, 0.08) 94%
-  );
+a:hover {
+  opacity: 0.5;
 }
 
-.ellipse-bottom {
-    position: absolute;
-    width: 862.89rem;
-    height: 532.47rem;
-    bottom: 0;
-    left: 0;
-}
-.ellipse-bottom:before {
-  content: "JJJJJ";
-  background-size: cover;
-    position: absolute;
-    width: 862.89rem;
-    height: 532.47rem;
-    bottom: -183.38rem;
-    left: -248.82rem;
-    border-radius: 431.45rem/266.24rem;
-    transform: rotate(-135deg);
-    filter: blur(50px);
-    background: linear-gradient(
-    180deg,
-    rgba(10, 10, 245, 0.75) 13%,
-    rgba(133, 133, 250, 0.38) 49%,
-    rgba(238, 234, 248, 0.08) 94%
-  );
-}
-
+/* WEBSITE LEVEL CSS CLASSES */
 .blurred-spot-top {
   position: absolute;
   top: 0;
@@ -87,8 +56,19 @@ a {
   position: absolute;
   bottom: calc( 0rem - var(--doopl-body-padding-block));
   left: calc( 0rem - var(--doopl-body-padding-inline));
+  bottom: 0;
+  left: 0;
 }
 
-.footer-container {
+.bottom-container {
   position: relative;
+}
+
+.card-container {
+  max-width: 1353.12px;
+  min-height: 569px;
+  background: var(--doopl-color-tertiary);
+  width: 1353.12px;
+  border: none;
+  border-radius: 36px;
 }

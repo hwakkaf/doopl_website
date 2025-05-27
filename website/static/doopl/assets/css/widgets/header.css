@@ -1,10 +1,15 @@
 .header {
   position: relative;
   font-size: 24px;
-  padding-inline-start: var(--doopl-header-padding-inline-start);
+  /* padding-inline-start: var(--doopl-header-padding-inline-start);
+  padding-inline-start: var(--doopl-header-padding-inline-start); */
   color: white;
   height: var(--doopl-header-height);
   column-gap: 30px;
+  margin-inline-start: 75px;
+  margin-inline-end: 41.88px;
+  margin-block-start: 36px;
+  margin-block-end: 120.32px;
 }
 
 .header-start {
@@ -36,4 +41,5 @@
 
 .header-download-button {
   margin-block-start: 20rem;
+  margin-inline-start: 28.12px;
 }

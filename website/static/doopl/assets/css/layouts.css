@@ -50,6 +50,21 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+.flex-ver-st-ch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.flex-ver-st-ce {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
 }

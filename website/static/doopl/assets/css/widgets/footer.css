@@ -1,21 +1,73 @@
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  margin-inline-start: 83.98px;
+  margin-block-start: 164.96px;
 }
 
 .footer-start {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  column-gap: 50.13px;
+  row-gap: 16.39px;
+  max-width: 90%;
 }
 
-.footer-start-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+.footer-start-doopl {
+  row-gap: 16.39px;
+  margin-inline-end: 96.95px;
+}
+
+.footer-start-doopl-text {
+  opacity: 0.65;
+}
+
+.footer-start-doopl p {
+  max-width: 321.07px;
+}
+
+.footer-start-quick-links {
+  row-gap: 21.39px;
+}
+
+.footer-start-contact-us {
+  row-gap: 21.39px;
+}
+
+.footer-start-our-location {
+  row-gap: 21.39px;
+  max-width: 364.06px;
+}
+
+.footer-center {
+  box-sizing: content-box;
+  padding-block-end: 38.47px;
+  padding-block-start: 55px;
+  min-height: 40px;
+}
+.footer-end {
+  padding-block-start: 56.56px;
+  padding-block-end: 91px;
+  border-block-start: 1px solid #2E2E46;
+  position: relative;
+  row-gap: 16.39px;
+  margin-inline-end: 62.88px;
+}
+
+.footer-end:before {
+  content: "";
+  position: absolute;
+  height: 240.28px;
+  width: 262px;
+  top: -249.53px;
+  right: -62.88px;
+  background: url(/assets/images/key-chain.svg);
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+.footer-quick-links .link-menu-item-text {
+  opacity: 0.75;
+}
+
+.footer-contct-us-items {
+  row-gap: var(--doopl-link-menu-row-gap);
 }

@@ -21,4 +21,4 @@
 export * from './doopl/doopl-header.js';
 export * from './doopl/doopl-footer.js';
 export * from './doopl/doopl-menu.js';
-export * from './doopl/doopl-login.js';
+export * from './doopl/doopl-select.js';

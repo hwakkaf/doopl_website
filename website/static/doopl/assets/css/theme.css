@@ -2,8 +2,10 @@
   /* COLOR SYSTEM */
   --doopl-color-primary: rgba(10, 10, 245, 1); /*#0A0AF5*/
   --doopl-color-secondary: rgba(18, 10, 45, 1); /*#120A2D*/
+  --doopl-color-tertiary: rgba(238, 234, 248, 1);
   --doopl-color-text-on-primary: rgba(255, 255, 255, 1);
-  --doopl-color-text-on-secondary: rgba(255, 255, 255, 1);
+  --doopl-color-title-on-secondary: rgba(255, 255, 255, 1);
+  --doopl-color-text-on-secondary: var(--doopl-color-tertiary);
 
   /* TYPOGRAPHY */
   --doopl-title-font-family: Poppins, -apple-system, BlinkMacSystemFont, 
@@ -24,6 +26,8 @@
   /* LAYOUTS */
   --doopl-body-padding-inline: 43.44rem;
   --doopl-body-padding-block: 36rem;
+  --doopl-body-padding-inline: 0;
+  --doopl-body-padding-block: 0;
 
   --doopl-header-padding-inline-start: 31.56rem; /*calc (75rem - 43.44rem);*/
   --doopl-header-height: 85rem;
@@ -50,7 +54,31 @@
   --doopl-menu-line-height: 1.9em;
   --doopl-menu-vertical-align: top;
   --doopl-menu-background: none;
-  --doopl-menu-text-color: var(--doopl-color-text-on-primary);
+  --doopl-menu-text-color: var(--doopl-color-title-on-secondary);
   --doopl-menu-text-uppercase: capitalize;
   --doopl-menu-horizontal-text-uppercase: uppercase;
+
+  /* LINK MENUS */
+  --doopl-link-menu-column-gap: 16px;
+  --doopl-link-menu-row-gap: 16.39px;
+  --doopl-link-menu-font-family: var(--doopl-text-font-family);
+  --doopl-link-menu-font-size: 12px;
+  --doopl-link-menu-font-weight: 300;
+  --doopl-link-menu-letter-spacing: 0.03em;
+  --doopl-link-menu-line-height: 1em;
+  --doopl-link-menu-vertical-align: middle;
+  --doopl-link-menu-background: none;
+  --doopl-link-menu-text-color: var(--doopl-color-text-on-secondary);
+  --doopl-link-menu-text-uppercase: capitalize;
+}
+
+.link-menu-navbar-small {
+  --doopl-link-menu-font-size: 11px;
+  --doopl-link-menu-column-gap: 13.5px;
+}
+
+.footer-social-links {
+  --doopl-link-menu-column-gap: 61.06px;
+  --doopl-link-menu-row-gap: 16.39px;
+
 }

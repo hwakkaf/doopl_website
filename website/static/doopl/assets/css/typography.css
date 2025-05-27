@@ -6,3 +6,60 @@
   letter-spacing: 0.0282em;
   line-height: 1.26em;
 }
+
+.title-small {
+  text-transform: uppercase;
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 22.4px;
+  vertical-align: middle;
+}
+
+.narrative-small {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.5em;
+  vertical-align: middle;
+}
+
+.narrative-contacts {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1em;
+  vertical-align: middle;
+  color: var(--doopl-color-primary);
+}
+
+.narrative-small-spaced {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0em;
+  line-height: 25px;
+  vertical-align: top;
+}
+
+.narrative-very-small {
+  font-family: var(--doopl-text-font-family);
+  font-weight: normal;
+  font-size: 11px;
+  letter-spacing: -0.14px;
+  line-height: 22.4px;
+  vertical-align: middle;
+}
+
+.narrative-select {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  line-height: 1.26em;
+  vertical-align: top;
+  color: var(--doopl-color-text-on-secondary);
+}

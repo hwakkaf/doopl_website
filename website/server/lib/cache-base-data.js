@@ -1,4 +1,5 @@
 import { strapi } from '@strapi/client';
+import helpers from './helpers.js';
 
 export const baseData = {
   info: {},
@@ -34,20 +35,26 @@ export async function prepareBaseData() {
   else process.localesArray = ['en']  
 
   let connector
-  , settings = {}
-  , global = {}
-  , vocab = {}
+    , settings = {}
+    , global = {}
+    , vocab = {}
     , menus = {}
     , menubars = {}
     , sitemap = {}
     , locales = {}
+    , links = {}
   ;
+
 
   connector = client.single('setting')
   for (let s of process.localesArray || []) {
     locales[s] = true;
     try {
-      settings[s] = (await connector.find({ locale: s })).data;
+      settings[s] = (await connector.find({
+        locale: s,
+        populate: {fallbackIcon: true}
+      })).data;
+      settings[s].fallbackIcon.url = `${process.env.CMS_BASE_URL}${settings[s].fallbackIcon.url}`
     } catch { settings[s] = {}; }
   }
   let keys = Object.keys(locales);
@@ -56,7 +63,8 @@ export async function prepareBaseData() {
   for (let s of keys) {
     try {
       global[s] = (await connector.find({ locale: s, populate: '*' })).data;
-    } catch(e) { console.log("Error getting data",e); global[s] = {} }
+      global[s].logo.url = `${process.env.CMS_BASE_URL}${global[s].logo.url}`
+    } catch(e) { console.log(e,"Error getting [global], language: ",s); global[s] = {} }
 
   }
 
@@ -69,12 +77,30 @@ export async function prepareBaseData() {
       });
       let voc = {}
       for (let v of res.data) {
-        let name = v.name?.replace(/-/g,' ');
-        voc[v.name] = v.text;
+        voc[helpers.toCamelCase(v.name)] = helpers.toTextCase(v.text || v.name);
       }
       vocab[s] = voc;
-    } catch(e) { console.log("Error getting data",e); vocab[s] = {} }
+    } catch(e) { console.log(e,"Error getting [vocabs], language: ",s); vocab[s] = {} }
 
+  }
+
+  connector = client.collection('marketing-links');
+  for (let s of keys) {
+    try {
+      let res = await connector.find({
+        locale: s,
+        populate: {icon: true}
+      });
+      let localedLinks = {}
+      for (let v of res.data) {
+        let name = v.group.toLowerCase();
+        if (v.icon) v.icon.url = `${process.env.CMS_BASE_URL}${v.icon.url}`
+        if (!localedLinks[name]) localedLinks[name] = [v];
+        else  localedLinks[name].push(v);
+      }
+      for (let l in localedLinks) localedLinks[l].sort((a,b) => a.ordering-b.ordering);
+      links[s] = localedLinks;
+    } catch(e) { console.log(e,"Error getting [links], language: ",s); vocab[s] = {} }
   }
 
   connector = client.collection('menus');
@@ -87,7 +113,7 @@ export async function prepareBaseData() {
       let res = {}
       for (let m of createHierarchy(menus[s])) res[m.hierarchy] = m;
       menubars[s] = res;
-    } catch(e) { console.log("Error getting data",e); menus[s] = []; menubars[s] = {} }
+    } catch(e) { console.log(e,"Error getting [menus], language: ",s); menus[s] = []; menubars[s] = {} }
 
   }
   connector = client.collection('sitemaps');
@@ -96,7 +122,7 @@ export async function prepareBaseData() {
       sitemap[s] = (await connector.find({
         locale: s,
       })).data;
-    } catch(e) { console.log("Error getting data",e); sitemap[s] = {} }
+    } catch(e) { console.log(e,"Error getting [sitemap], language: ",s); sitemap[s] = {} }
 
   }
   
@@ -123,6 +149,7 @@ export async function prepareBaseData() {
     menus: menus[l],
     menubars: menubars[l],
     sitemap: sitemap[l],
+    links: links[l],
   }
  }
 }

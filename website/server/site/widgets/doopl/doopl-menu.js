@@ -15,30 +15,24 @@ import { html } from '@popeindustries/lit-html-server';
 
 */
 
-export const dooplMenu = (data, mb="doopl", type="horizontal") => {
-  let { vocab, settings, menubars, global, location } = data
-  let doopl = menubars[mb];
+export const dooplMenu = (config) => {
+  let { data, name, type, className } = config
+  let mb = data.menubars[name];
 
+  type = type || 'horizontal';
   return html`
-    <style>
-      
-    </style>
-    <nav class="navbar ${type}-navbar">
-      ${menubar(doopl,type, 1)}
+    <nav class="menu-navbar menu-navbar-${type}${className? ` ${className}`: ''}">
+      ${menubar(mb,type, 1)}
     </nav>
     <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-    <script type="module">
-      let x = 10;
-      console.log("menubar", x)
-    </script>
 `;
 }
 
 const menubar = (mb, type, level) => {
   return Array.isArray(mb.children) && mb.children.length
   ? html`
-  <ul class="menu ${type}-menu menu-${level}${level == 2? " menu-deep menu-submenu" : level > 2? " menu-deeper menu-submenu": " menu-root"}">
+  <ul class="menu menu-${type} menu-${level}${level == 2? " menu-deep menu-submenu" : level > 2? " menu-deeper menu-submenu": " menu-root"}">
     ${ mb.children.map(item => menuItems(item, type, level))}
   </ul>
   `
@@ -48,14 +42,14 @@ const menubar = (mb, type, level) => {
 const menuItems = (item, type, level) => {
   return (Array.isArray(item.children) && item.children.length) || item.type == 'Grouping' || item.type == 'Submenu'
     ? html`
-      <li class="menu-item-with-submenu menu-item ${type}-menu-item menu-item-${level}">
+      <li class="menu-item-with-submenu menu-item menu-item-${type} menu-item-${level}">
         <span class="menu-item-text">${item.title}</span>
-        <svg class="menu-open-indicator ${type}-menu-open-indicator" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="menu-open-indicator menu-open-indicator-${type}" width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.35155 7.61757L12.3616 1.60757L10.9486 0.192566L6.35155 4.79257L1.75555 0.192566L0.341553 1.60657L6.35155 7.61757Z" fill="white"/>
         </svg>
         ${menubar(item, type, level+1)}
       </li>`
-    : html`<li class="menu-item ${type}-menu-item menu-item-${level}"><a href=${item.url}><span class="menu-item-text">${item.title}</span></a></li>`
+    : html`<li class="menu-item menu-item-${type} menu-item-${level}"><a href=${item.url}><span class="menu-item-text">${item.title}</span></a></li>`
   ;
 }
 
