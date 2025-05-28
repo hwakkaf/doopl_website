@@ -18,7 +18,8 @@
 // export * from './services-plans.js';
 // export * from './services.js';
 // export * from './main-menu.js';
-export * from './doopl/doopl-header.js';
-export * from './doopl/doopl-footer.js';
-export * from './doopl/doopl-menu.js';
-export * from './doopl/doopl-select.js';
+export * from './header/header.js';
+export * from './footer/footer.js';
+export * from './menu/menu.js';
+export * from './select/select.js';
+export * from './svg/svg.js';

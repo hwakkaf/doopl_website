@@ -11,6 +11,10 @@ const serverMiddleware = (server) => {
 	if (!fs.existsSync(websiteFolder)) {
 		console.log("<FATAL ERROR> Website folder not found...", process.env.WEBSITE_STATIC_FOLDER);
 	}
+  let dynamicFolder = path.resolve(process.env.WEBSITE_DYNAMIC_FOLDER);
+	if (!fs.existsSync(dynamicFolder)) {
+		console.log("<FATAL ERROR> Dynamic Website folder not found...", process.env.WEBSITE_DYNAMIC_FOLDER);
+	}
 
   server.register(formbody)
   server.register(cookie)
@@ -81,6 +85,40 @@ const serverMiddleware = (server) => {
     index: false, //when true it will try to serve index.html, default: false
     decorateReply: false,
   });
+
+  if (process.env.WEBSITE_BUILD == "dev") {
+    server.register(fileServer, {
+      root: path.join(dynamicFolder, 'templates'),
+      prefix: '/templates', // optional: default '/',
+      // precompress: config.precomressAssets,
+      threshold: 1024,
+      //forceable: true, // sendFile can force sending excluded files by explicitely passing force=true parameter
+      //excludes: ['/**/*.html'], // do not serve unless force = true parameter is passed explicitely by sendFile
+      index: false, //when true it will try to serve index.html, default: false
+      decorateReply: false,
+    });
+    server.register(fileServer, {
+      root: path.join(dynamicFolder, 'pages'),
+      prefix: '/pages', // optional: default '/',
+      // precompress: config.precomressAssets,
+      threshold: 1024,
+      //forceable: true, // sendFile can force sending excluded files by explicitely passing force=true parameter
+      //excludes: ['/**/*.html'], // do not serve unless force = true parameter is passed explicitely by sendFile
+      index: false, //when true it will try to serve index.html, default: false
+      decorateReply: false,
+    });
+    server.register(fileServer, {
+      root: path.join(dynamicFolder, 'widgets'),
+      prefix: '/widgets', // optional: default '/',
+      // precompress: config.precomressAssets,
+      threshold: 1024,
+      //forceable: true, // sendFile can force sending excluded files by explicitely passing force=true parameter
+      //excludes: ['/**/*.html'], // do not serve unless force = true parameter is passed explicitely by sendFile
+      index: false, //when true it will try to serve index.html, default: false
+      decorateReply: false,
+    });
+  }
+  
   return server;
 }
 

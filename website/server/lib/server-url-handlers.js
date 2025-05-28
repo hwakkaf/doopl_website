@@ -18,10 +18,11 @@ const baseDataModels = {
 export const dynamicHandlerFactory = async (location) => {
   let template;
   try {
-    let tmpl = location.template
+    let tmpl = location.template;
+    if (tmpl == 'main') tmpl ='doopl';
     tmpl =
       !tmpl
-        ? [`../site/templates/main/main.js`, `../site/templates/main/data-config.js`]
+        ? [`../site/templates/doopl/doopl.js`, `../site/templates/doopl/data-config.js`]
         : tmpl == 'page' || tmpl.startsWith('-')
           ? [`../site/pages/${location.page}/${location.page}.js`, `../site/pages/${location.page}/data-config.js`]
           : [`../site/templates/${tmpl}/${tmpl}.js`, `../site/templates/${tmpl}/data-config.js`]

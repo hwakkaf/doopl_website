@@ -1,5 +1,5 @@
-@import url("./widgets/menubar.css");
-@import url("./widgets/header.css");
-@import url("./widgets/footer.css");
-@import url("./widgets/link-menu.css");
-@import url("./widgets/select.css");
+@import url("/widgets/menu/menu.css");
+@import url("/widgets/header/header.css");
+@import url("/widgets/footer/footer.css");
+@import url("/widgets/link-menu/link-menu.css");
+@import url("/widgets/select/select.css");

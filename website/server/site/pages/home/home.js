@@ -9,9 +9,9 @@ const render = async config => {
 }
 
 export default {
-  css: [],
+  css: ['pages/home/home'],
   headJS : [],
-  bodyJS: [],
+  bodyJS: ['pages/home/home-page'],
   headTags: [],
   bodyTags: [],
   render,
