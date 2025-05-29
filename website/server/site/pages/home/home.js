@@ -9,6 +9,7 @@ const render = async config => {
   let learnerDriver = pageData.narratives?.home?.learnerDriver?? {};
   let instructor = pageData.narratives?.home?.instructor?? {};
   let helpVideo = pageData.narratives?.home?.helpVideo?? {};
+  let readyStarted = pageData.narratives?.home?.readyStarted?? {};
 
   if (Array.isArray(wcu?.whys)) wcu.whys.sort((a,b) => a.ordering - b.ordering);
   if (Array.isArray(hiw?.sections)) hiw.sections.sort((a,b) => a.ordering - b.ordering);
@@ -114,19 +115,46 @@ const render = async config => {
     </div>
 
     <!-- PARTNERS -->
-     <div class="our-partners">
-      ${widgets.linkMenu({data: config, name: 'partners', type: 'horizontal', hasIcon: true, hasText: false, className: "our-partners-links"})}
-     </div>
+    <div class="our-partners">
+    ${widgets.linkMenu({data: config, name: 'partners', type: 'horizontal', hasIcon: true, hasText: false, className: "our-partners-links"})}
+    </div>
 
     <!-- HELP VIDEO -->
-     <div class="help-video">
+    <div class="help-video">
       <img class="help-video-image" src=${helpVideo.images[0].url} width="1343.1" height="580">
       <div class="help-video-main f-c f-a-ce f-j-ce">
-        <img class="" src=${helpVideo.icon.url} width="72.75" height="68">
+        <img class="help-video-image" src=${helpVideo.icon.url} width="72.75" height="68" role="button">
         <h2 class="popp-400-36--1d2-29px-top t-on-p-color">${helpVideo.title}</h2>
         <span class="help-video-main-text mont-400-19--0d2-32px-top center">${helpVideo.narrative}</span>
       </div>
-     </div>
+    </div>
+
+    <!-- HAPPY CUSTOMERS -->
+    <div class="help-video">
+      <img class="help-video-image" src=${helpVideo.images[0].url} width="1343.1" height="580">
+      <div class="help-video-main f-c f-a-ce f-j-ce">
+        <img class="help-video-image" src=${helpVideo.icon.url} width="72.75" height="68" role="button">
+        <h2 class="popp-400-36--1d2-29px-top t-on-p-color">${helpVideo.title}</h2>
+        <span class="help-video-main-text mont-400-19--0d2-32px-top center">${helpVideo.narrative}</span>
+      </div>
+    </div>
+
+    <!-- READY TO GET STARTED -->
+    <div class="ready-started-container f-c f-a-ce">
+      <div class="ready-started f-c f-a-ce f-j-ce">
+        <span class="ready-started-brief f-r f-a-ce">
+          <span class="ready-started-bullet"></span>
+          <span class="mont-400-12-3p-100p-top">${readyStarted.brief}</span> 
+        </span>
+        <h2 class="popp-700-73--0-92px-top t-on-p-color">${readyStarted.title}</h2>
+        <span class="help-video-main-text mont-200-20--0d14-32px-middle center">${readyStarted.narrative}</span>
+        <a class="ready-started-download" href="${readyStarted.link}" target="_blank">
+          <button class="doopl-button action-button learner-driver-details-link">${readyStarted.linkAnchorText}</button>
+        </a>
+      </div>
+
+    </div>
+
   `;
 }
 

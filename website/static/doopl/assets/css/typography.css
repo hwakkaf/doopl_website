@@ -76,6 +76,15 @@
   vertical-align: top;
 }
 
+.mont-400-12-3p-100p-top {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 3%;
+  line-height: 100%;
+  vertical-align: top;
+}
+
 .popp-700-32-0-92p-top {
   font-family: var(--doopl-title-font-family);
   font-weight: 700;
@@ -91,6 +100,15 @@
   font-size: 48px;
   letter-spacing: -1.8px;
   line-height: 58px;
+  vertical-align: top;
+}
+
+.popp-700-73--0-92px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 73px;
+  letter-spacing: 0px;
+  line-height: 92px;
   vertical-align: top;
 }
 
@@ -138,6 +156,15 @@
   letter-spacing: -1.2px;
   line-height: 48px;
   vertical-align: top;
+}
+
+.mont-200-20--0d14-32px-middle {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 200;
+  font-size: 20px;
+  letter-spacing: -0.14px;
+  line-height: 32px;
+  vertical-align: middle;
 }
 
 .mont-300-21-0-27p-top {
