@@ -112,6 +112,15 @@
   vertical-align: top;
 }
 
+.popp-700-48--0-92px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: 0px;
+  line-height: 92px;
+  vertical-align: top;
+}
+
 
 .popp-700-21--0d5px-32px-top {
   font-family: var(--doopl-title-font-family);

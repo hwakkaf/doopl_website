@@ -10,9 +10,11 @@ const render = async config => {
   let instructor = pageData.narratives?.home?.instructor?? {};
   let helpVideo = pageData.narratives?.home?.helpVideo?? {};
   let readyStarted = pageData.narratives?.home?.readyStarted?? {};
+  let happyCustomers = pageData.narratives?.home?.happyCustomers?? {};
 
   if (Array.isArray(wcu?.whys)) wcu.whys.sort((a,b) => a.ordering - b.ordering);
   if (Array.isArray(hiw?.sections)) hiw.sections.sort((a,b) => a.ordering - b.ordering);
+  if (Array.isArray(happyCustomers.customers)) happyCustomers.customers.sort((a,b) => a.ordering - b.ordering);
   return html`
 
     <!-- INSTANT WITH DOOPL -->
@@ -76,16 +78,16 @@ const render = async config => {
         </div>
         <div class="how-it-works-sections f-c f-j-ce">
           ${hiw?.sections?.map((w,i) => html`
-          <div class="how-it-works-sections-section f-r">
-            <div class="how-it-works-sections-circle f-r f-j-ce f-a-ce">
-              <span class="popp-700-17--0d2-29px-top how-it-works-sections-number">${i+1}</span>
+            <div class="how-it-works-sections-section f-r">
+              <div class="how-it-works-sections-circle f-r f-j-ce f-a-ce">
+                <span class="popp-700-17--0d2-29px-top how-it-works-sections-number">${i+1}</span>
+              </div>
+              <div class="f-c">
+                <h3 class="popp-700-21--0d5px-32px-top t-on-s-color capitalize">${w.title}</h3>
+                <p class="mont-400-17--0d2-29px-top n-on-s-color">${w.narrative}</p>
+              </div>
             </div>
-            <div class="f-c">
-              <h3 class="popp-700-21--0d5px-32px-top t-on-s-color capitalize">${w.title}</h3>
-              <p class="mont-400-17--0d2-29px-top n-on-s-color">${w.narrative}</p>
-            </div>
-          </div>
-        `)}
+          `)}
         </div>
       </div>
     </div>
@@ -130,13 +132,22 @@ const render = async config => {
     </div>
 
     <!-- HAPPY CUSTOMERS -->
-    <div class="help-video">
-      <img class="help-video-image" src=${helpVideo.images[0].url} width="1343.1" height="580">
-      <div class="help-video-main f-c f-a-ce f-j-ce">
-        <img class="help-video-image" src=${helpVideo.icon.url} width="72.75" height="68" role="button">
-        <h2 class="popp-400-36--1d2-29px-top t-on-p-color">${helpVideo.title}</h2>
-        <span class="help-video-main-text mont-400-19--0d2-32px-top center">${helpVideo.narrative}</span>
+    <div class="happy-customers f-c f-a-ce f-j-ce">
+      <div class="happy-customers-header f-r f-a-ce f-j-sb">
+        <h2 class="f-g popp-700-48--0-92px-top t-on-s-color">${happyCustomers.main.title}</h2>
+        <button class="happy-customers-button f-c f-a-ce f-j-ce">${widgets.svg.arrowLeft("c1")}</button>
+        <button class="happy-customers-button f-c f-a-ce f-j-ce">${widgets.svg.arrowRight("c1")}</button>
       </div>
+      <div class="happy-customers-slides f-r">
+        ${(happyCustomers.customers || []).map((w,i) => html`
+          <div class="happy-customers-card f-c f-j-sa f-a-ce">
+            <img class="happy-customers-image" src=${w.images[0]?.url??''} width="83.12" height="88.05">
+            <h3 class="popp-700-21--0d5px-32px-top t-on-t-color capitalize">${w.title}</h3>
+            <p class="mont-400-17--0d2-29px-top n-on-t-color">${w.narrative}</p>
+          </div>
+        `)}
+      </div>
+      <img class="happy-customers-driving-wheel" src=${happyCustomers.main.images[0].url} width="316.27" height="315.18">
     </div>
 
     <!-- READY TO GET STARTED -->

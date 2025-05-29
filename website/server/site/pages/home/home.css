@@ -315,6 +315,55 @@
   margin-block-start: 24.57px;
 }
 
+/* HAPPY CUSTOMERS */
+.happy-customers {
+  position: relative;
+  align-self: center;
+  max-width: 1340px;
+  min-width: 300px;
+  width: 100%;
+  border: none;
+  row-gap: 132.15px;
+  margin-block-end: 301.72px;
+}
+
+.happy-customers-header {
+  column-gap: 25px;
+  width: 100%;
+}
+.happy-customers-button {
+  width: 60px;
+  height: 40px;
+  border: 1px solid var(--doopl-color-text-on-secondary,#EEEAF8);
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+.happy-customers-button svg {
+  fill: var(--doopl-color-text-on-secondary,#EEEAF8);
+}
+.happy-customers-button:hover svg {
+  fill: #160F31;
+}
+.happy-customers-button:hover {
+  background: var(--doopl-color-text-on-secondary,#EEEAF8);
+}
+.happy-customers-slides {
+  column-gap: 34px;
+  row-gap: 34px;
+}
+.happy-customers-card {
+  height: 455.38px;
+  row-gap: 28.17px;
+  background: var(--doopl-color-tertiary,#EEEAF8);
+  border: none;
+  border-radius: 36px;
+}
+.happy-customers-driving-wheel {
+  position: absolute;
+  bottom: -262.53px;
+  left: -74.95px;
+}
 .xxx {
   padding-inline-start: rem;
   padding-inline-end: rem;
