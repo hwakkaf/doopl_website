@@ -358,6 +358,8 @@
   background: var(--doopl-color-tertiary,#EEEAF8);
   border: none;
   border-radius: 36px;
+  padding-inline: 33px;
+  padding-block: 60px;
 }
 .happy-customers-driving-wheel {
   position: absolute;
