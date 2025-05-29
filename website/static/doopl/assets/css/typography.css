@@ -230,6 +230,15 @@
   vertical-align: top;
 }
 
+.mont-700-18-0-32-top {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 23px;
+  vertical-align: top;
+}
+
 .tertiary-color {
   color: var(--doopl-color-text-on-secondary,#EEEAF8);
   fill: var(--doopl-color-text-on-secondary,#EEEAF8);

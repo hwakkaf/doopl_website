@@ -143,7 +143,7 @@ const render = async config => {
           <div class="happy-customers-card f-c f-j-sa f-a-ce">
             <img class="happy-customers-image" src=${w.images[0]?.url??''} width="83.12" height="88.05">
             <h3 class="popp-700-21--0d5px-32px-top t-on-t-color capitalize">${w.title}</h3>
-            <p class="mont-400-17--0d2-29px-top n-on-t-color">${w.narrative}</p>
+            <p class="mont-400-17--0d2-29px-top n-on-t-color"><span class="mont-700-18-0-32-top p-color">“ </span>${w.narrative}<span class="mont-700-18-0-32-top p-color"> ”</span></p>
           </div>
         `)}
       </div>

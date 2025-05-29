@@ -9,7 +9,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 /* DOOPL THEME */
 :root {
   /* COLOR SYSTEM */
-  --doopl-color-primary: rgba(10, 10, 245, 1); /*#0A0AF5*/
+  --doopl-color-primary: #0a0af5; /*#0A0AF5*/
   --doopl-color-secondary: rgba(18, 10, 45, 1); /*#120A2D*/
   --doopl-color-tertiary: rgba(238, 234, 248, 1);
   --doopl-color-text-on-primary: rgba(255, 255, 255, 0.7);
