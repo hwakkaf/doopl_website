@@ -8,16 +8,17 @@ const render = async config => {
   let hiw = pageData.narratives?.home?.howItWorks?? {};
   let learnerDriver = pageData.narratives?.home?.learnerDriver?? {};
   let instructor = pageData.narratives?.home?.instructor?? {};
+  let helpVideo = pageData.narratives?.home?.helpVideo?? {};
 
   if (Array.isArray(wcu?.whys)) wcu.whys.sort((a,b) => a.ordering - b.ordering);
   if (Array.isArray(hiw?.sections)) hiw.sections.sort((a,b) => a.ordering - b.ordering);
   return html`
 
     <!-- INSTANT WITH DOOPL -->
-    <div class="flex-ver-st-ch center w-1">
-      <span class="mont-400-15-3-1-top n-on-s-color">${iwd.linkAnchorText}${widgets.svg.rightArrow(" tertiary-color")}</span>
+    <div class="instant-with-doopl flex-ver-st-ce center">
+      <span class="instant-with-doopl-explore f-r f-a-en f-j-ce"><span class="mont-400-15-3-1-top n-on-s-color">${iwd.linkAnchorText}</span>${widgets.svg.rightArrow(" tertiary-color")}</span>
       <h2 class="popp-700-32-0-92p-top t-on-s-color">${iwd.title}</h2>
-      <p class="mont-300-21-0-27p-top n-on-s-color w-2">${iwd.narrative}</p>
+      <p class="instant-with-doopl-main mont-300-21-0-27p-top n-on-s-color center">${iwd.narrative}</p>
     </div>
 
     <!-- LEANER/INSTRUCTOR GO -->
@@ -111,9 +112,20 @@ const render = async config => {
       </a>
     </div>
     </div>
+
     <!-- PARTNERS -->
      <div class="our-partners">
       ${widgets.linkMenu({data: config, name: 'partners', type: 'horizontal', hasIcon: true, hasText: false, className: "our-partners-links"})}
+     </div>
+
+    <!-- HELP VIDEO -->
+     <div class="help-video">
+      <img class="help-video-image" src=${helpVideo.images[0].url} width="1343.1" height="580">
+      <div class="help-video-main f-c f-a-ce f-j-ce">
+        <img class="" src=${helpVideo.icon.url} width="72.75" height="68">
+        <h2 class="popp-400-36--1d2-29px-top t-on-p-color">${helpVideo.title}</h2>
+        <span class="help-video-main-text mont-400-19--0d2-32px-top center">${helpVideo.narrative}</span>
+      </div>
      </div>
   `;
 }

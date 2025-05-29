@@ -131,6 +131,14 @@
   line-height: 29px;
   vertical-align: top;
 }
+.popp-400-36--1d2-29px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: -1.2px;
+  line-height: 48px;
+  vertical-align: top;
+}
 
 .mont-300-21-0-27p-top {
   font-family: var(--doopl-text-font-family);

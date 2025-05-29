@@ -1,24 +1,19 @@
-.w-1 {
-  margin-inline-start: 225rem;
+.instant-with-doopl {
+  /* margin-inline-start: 225rem; */
+  align-self: center;
   margin-block-end: 36.56px;
   padding-inline-end: rem;
   min-width: 300px;
   width: 950.31rem;
   max-width: 950.31px;
-  margin-block-end: rem;
 }
-.w-2 {
-  margin-inline-start: 81.37rem;
-  padding-inline-end: rem;
+.instant-with-doopl-explore {
+  column-gap: 7px;
+}
+.instant-with-doopl-main {
+  /* margin-inline-start: 81.37rem; */
   min-width: 300px;
-  width: 829.25rem;
   max-width: 829.25px;
-  margin-block-end: rem;
-}
-
-.w-1-arrow {
-  margin-inline-start: 5px;
-  vertical-align: bottom;
 }
 
 .learner-instructor-nav {
@@ -248,6 +243,31 @@
   column-gap: 82px;
 }
 
+/* OUR PRTNERS */
+.help-video {
+  position: relative;
+  align-self: center;
+  max-width: 1343.12px;
+  min-width: 300px;
+  margin-inline: 43.44px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  margin-block-end: 196.8px;
+}
+
+.help-video-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    row-gap: 24px;
+}
+.help-video-main-text {
+  max-width: 645.53px;
+  color: white;
+  opacity: 0.65;
+}
 .xxx {
   padding-inline-start: rem;
   padding-inline-end: rem;
