@@ -977,6 +977,7 @@ export interface ApiNarrativeNarrative extends Struct.CollectionTypeSchema {
       'api::narrative.narrative'
     >;
     narrative: Schema.Attribute.Text;
+    ordering: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0>;
     pages: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.Text;

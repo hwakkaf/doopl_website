@@ -58,6 +58,10 @@
     },
     "linkAnchorText": {
       "type": "string"
+    },
+    "ordering": {
+      "type": "decimal",
+      "default": 0
     }
   }
 }

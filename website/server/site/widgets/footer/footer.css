@@ -73,5 +73,5 @@
 }
 
 .footer-contct-us-items {
-  row-gap: var(--doopl-link-menu-row-gap);
+  row-gap: var(--doopl-link-menu-row-gap,16px);
 }

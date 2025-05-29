@@ -12,9 +12,14 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   --doopl-color-primary: rgba(10, 10, 245, 1); /*#0A0AF5*/
   --doopl-color-secondary: rgba(18, 10, 45, 1); /*#120A2D*/
   --doopl-color-tertiary: rgba(238, 234, 248, 1);
-  --doopl-color-text-on-primary: rgba(255, 255, 255, 1);
+  --doopl-color-text-on-primary: rgba(255, 255, 255, 0.7);
+  --doopl-color-title-on-primary: rgba(255, 255, 255, 1);
   --doopl-color-title-on-secondary: rgba(255, 255, 255, 1);
-  --doopl-color-text-on-secondary: var(--doopl-color-tertiary);
+  --doopl-color-text-on-secondary: rgba(238, 234, 248, 0.7);
+  --doopl-color-title-on-tertiary: rgba(2, 21, 48, 1);
+  --doopl-color-text-on-tertiary: rgba(22, 15, 49, 0.7);
+  --doopl-color-title-small-on-tertiary: rgba(22, 28, 45, 1);
+  --doopl-color-text-small-on-tertiary: rgba(22, 28, 45, 0.7);
 
   /* TYPOGRAPHY */
   --doopl-title-font-family: Poppins, -apple-system, BlinkMacSystemFont, 

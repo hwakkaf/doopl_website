@@ -38,6 +38,7 @@ export default class Helpers {
     .replace(/\s+/g, '_')
     // Replace all hyphens/underscores followed by letter with uppercase letter
     .replace(/[-_\s](.)/g, (_, char) => char.toUpperCase())
+    .replace(/[\.](.)/g, (_, char) => `.${char.toLowerCase()}`)
     // Handle cases where first character might be uppercase
     .replace(/^[A-Z]/, (firstChar) => firstChar.toLowerCase())
   }

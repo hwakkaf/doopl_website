@@ -53,7 +53,7 @@ body {
   /* height: 100%; */
   background-color: var(---doopl-color-secondary,rgba(18, 10, 45, 1));
   color: var(--doopl-color-text-on-secondary, white);
-  padding: var(--doopl-body-padding-block) var(--doopl-body-padding-inline);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   transition: font-family 0.3s ease;
   font-display: swap;
 
@@ -65,6 +65,7 @@ body {
 
 main {
   flex-grow: 1;
+  z-index: 1;
 }
 a {
   text-decoration: none;

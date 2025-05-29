@@ -49,7 +49,7 @@ export const getGroup = async (config = {}, requestConfig) => {
     if (entity && entity.name) {
       if (entity.isSingle) data[entity.name] = await single(entity);
       else {
-        let { field, deep} = entity.objectify??{};
+        let { field, deep, camelize} = entity.objectify??{};
         if (field) {
           // converting data array to key/value object with field value as the key for each data item,
           // with the possibility to create deep nested object if field is dot seperated name
@@ -59,7 +59,14 @@ export const getGroup = async (config = {}, requestConfig) => {
             , transform
             ;
           deep = deep || deep === undefined;
-          transform = deep? f => helpers.toCamelCase(f).split('.') : f => [helpers.toCamelCase(f)];
+          transform = camelize
+            ? deep
+            ? f => helpers.toCamelCase(f).split('.')
+            : f => [helpers.toCamelCase(f)]
+            : deep
+            ? f => f.split('.')
+            : f => [f]
+            ;
           for (let d of await collection(entity)) {
             let accessName = transform(d[field] || 'wrongAccessField');
             last = accessName[accessName.length-1];
@@ -67,11 +74,14 @@ export const getGroup = async (config = {}, requestConfig) => {
             if (accessName.length > 1) {
               for (let l of accessName.slice(0,accessName.length-1)) {
                 if (!nested[l]) nested = nested[l] = {};
+                else nested = nested[l];
               }
             }
             else nested = result;
             // insert data into nested object
             // sometimes same accessname may not be unique in database, its values should be cached as array
+            if (d.icon) d.icon.url = `${process.env.CMS_BASE_URL}${d.icon.url}`;
+            for (let img of d?.images?? []) img.url = `${process.env.CMS_BASE_URL}${img.url}`;
             if (!nested[last]) nested[last] = d;
             else if (Array.isArray(nested[last])) nested[last].push(d);
             else nested[last] = [nested[last],d];

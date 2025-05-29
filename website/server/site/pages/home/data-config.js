@@ -16,9 +16,11 @@ export default {
     {
       name: 'narratives', //ours
       isSingle: false, //ours: true for single types
+      sort: ['ordering', 'accessName'],
       objectify: { //ours, transform data array to object using objectify value as property name for object key source
         field: 'accessName',
-        deep: true
+        deep: true,
+        camelize: true
       },
       // data configuration as in Strapi client
       populate: {
