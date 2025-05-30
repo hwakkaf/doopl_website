@@ -16,10 +16,10 @@ const startNewServer = async () => {
 	try {
 		await server.listen({
 			port: Number(process.env.PORT),
-			host: process.env.ADDRESS, // e.g., '127.0.0.1'
+			host: process.env.HOST, // e.g., '127.0.0.1'
 		});
 		
-		console.log("Website server started", process.env.PORT, process.env.ADDRESS);
+		console.log("Website server started", process.env.PORT, process.env.HOST);
 	} catch (err) {
 		console.error('Error starting website server:', err);
 		process.exit(1);

@@ -1,5 +1,3 @@
-@import url("/assets/css/theme.css");
-
 :root {
 
     /*  responsive header */
@@ -43,15 +41,26 @@
 html {
   margin: 0;
   /* height: 100%; */
-  font-size: calc(100vw / 1440); /* fully fluid implementation */
-  /*font-size: 1px;  no fluid implementation */
+  font-size: calc(100vw / 1440);
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: calc(1024px / 1440);
+  }
+}
+
+@media (min-width: 1680px) {
+  html {
+    font-size: calc(1680px / 1440);
+  }
 }
 
 body {
   font-size: 15px;
   margin: 0;
   /* height: 100%; */
-  background-color: var(---doopl-color-secondary,rgba(18, 10, 45, 1));
+  background-color: var(--doopl-color-secondary,rgba(18, 10, 45, 1));
   color: var(--doopl-color-text-on-secondary, white);
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   transition: font-family 0.3s ease;
@@ -76,6 +85,7 @@ a:hover {
   opacity: 0.5;
 }
 
+.hidden { display: none;}
 /* WEBSITE LEVEL CSS CLASSES */
 .blurred-spot-top {
   position: absolute;

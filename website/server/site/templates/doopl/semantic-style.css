@@ -1,0 +1,10 @@
+aside, .aside-note {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--doopl-text-font-family);
+  font-weight: 400;
+  font-size: 12rem;
+  letter-spacing: 0.03em;
+  line-height: 1em;
+  vertical-align: top;
+}

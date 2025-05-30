@@ -1,6 +1,225 @@
-.center {
-  text-align: center;
+.txt-cap { text-transform: capitalize}
+.txt-upp { text-transform: uppercase}
+.txt-low { text-transform: lowercase}
+.txt-cen { text-align: center}
+.txt-sta { text-align: start}
+.txt-end { text-align: center}
+.txt-top { vertical-align: top;}
+.txt-bot { vertical-align: bottom;}
+.txt-mid { vertical-align: middle;}
+.txt-bas { vertical-align: baseline;}
+
+.lhi-06 { line-height: 0.6em;}
+.lhi-065 { line-height: 0.65em;}
+.lhi-07 { line-height: 0.7em;}
+.lhi-075 { line-height: 0.75em;}
+.lhi-08 { line-height: 0.8em;}
+.lhi-085 { line-height: 0.85em;}
+.lhi-09 { line-height: 0.9em;}
+.lhi-095 { line-height: 0.95em;}
+.lhi-1 { line-height: 1em;}
+.lhi-11 { line-height: 1.1em;}
+.lhi-115 { line-height: 1.15em;}
+.lhi-12 { line-height: 1.2em;}
+.lhi-125 { line-height: 1.25em;}
+.lhi-13 { line-height: 1.3em;}
+.lhi-135 { line-height: 1.35em;}
+.lhi-14 { line-height: 1.4em;}
+.lhi-145 { line-height: 1.45em;}
+.lhi-15 { line-height: 1.5em;}
+.lhi-155 { line-height: 1.55em;}
+.lhi-16 { line-height: 1.6em;}
+.lhi-165 { line-height: 1.65em;}
+.lhi-17 { line-height: 1.7em;}
+.lhi-175 { line-height: 1.75em;}
+.lhi-18 { line-height: 1.8em;}
+.lhi-185 { line-height: 1.85em;}
+.lhi-19 { line-height: 1.9em;}
+.lhi-195 { line-height: 1.95em;}
+.lhi-2 { line-height: 2em;}
+
+.lsp-000, .lsp-0 { letter-spacing: 0em;}
+.lsp-001 { letter-spacing: 0.001em;}
+.lsp-002 { letter-spacing: 0.002em;}
+.lsp-003 { letter-spacing: 0.003em;}
+.lsp-004 { letter-spacing: 0.004em;}
+.lsp-005 { letter-spacing: 0.005em;}
+.lsp-006 { letter-spacing: 0.006em;}
+.lsp-007 { letter-spacing: 0.007em;}
+.lsp-008 { letter-spacing: 0.009em;}
+.lsp-009 { letter-spacing: 0.009em;}
+.lsp-010, .lsp-01 { letter-spacing: 0.010em;}
+.lsp-015 { letter-spacing: 0.015em;}
+.lsp-020, .lsp-02 { letter-spacing: 0.020em;}
+.lsp-025 { letter-spacing: 0.025em;}
+.lsp-030, .lsp-03 { letter-spacing: 0.030em;}
+.lsp-035 { letter-spacing: 0.035em;}
+.lsp-040, .lsp-04 { letter-spacing: 0.040em;}
+.lsp-045 { letter-spacing: 0.045em;}
+.lsp-050, .lsp-05 { letter-spacing: 0.050em;}
+.lsp-055 { letter-spacing: 0.055em;}
+.lsp-060, .lsp-06 { letter-spacing: 0.060em;}
+.lsp-065 { letter-spacing: 0.065em;}
+.lsp-070, .lsp-07 { letter-spacing: 0.070em;}
+.lsp-075 { letter-spacing: 0.075em;}
+.lsp-080, .lsp-08 { letter-spacing: 0.080em;}
+.lsp-085 { letter-spacing: 0.085em;}
+.lsp-090, .lsp-09 { letter-spacing: 0.090em;}
+.lsp-095 { letter-spacing: 0.095em;}
+.lsp-100, .lsp-1 { letter-spacing: 0.100em;}
+.lsp-105 { letter-spacing: 0.105em;}
+
+.lsp--001 { letter-spacing: -0.001em;}
+.lsp--002 { letter-spacing: -0.002em;}
+.lsp--003 { letter-spacing: -0.003em;}
+.lsp--004 { letter-spacing: -0.004em;}
+.lsp--005 { letter-spacing: -0.005em;}
+.lsp--006 { letter-spacing: -0.006em;}
+.lsp--007 { letter-spacing: -0.007em;}
+.lsp--008 { letter-spacing: -0.009em;}
+.lsp--009 { letter-spacing: -0.009em;}
+.lsp--010, .lsp--01 { letter-spacing: -0.010em;}
+.lsp--015 { letter-spacing: -0.015em;}
+.lsp--020, .lsp--02 { letter-spacing: -0.020em;}
+.lsp--025 { letter-spacing: -0.025em;}
+.lsp--030, .lsp--03 { letter-spacing: -0.030em;}
+.lsp--035 { letter-spacing: -0.035em;}
+.lsp--040, .lsp--04 { letter-spacing: -0.040em;}
+.lsp--045 { letter-spacing: -0.045em;}
+.lsp--050, .lsp--05 { letter-spacing: -0.050em;}
+.lsp--055 { letter-spacing: -0.055em;}
+.lsp--060, .lsp--06 { letter-spacing: -0.060em;}
+.lsp--065 { letter-spacing: -0.065em;}
+.lsp--070, .lsp--07 { letter-spacing: -0.070em;}
+.lsp--075 { letter-spacing: -0.075em;}
+.lsp--080, .lsp--08 { letter-spacing: -0.080em;}
+.lsp--085 { letter-spacing: -0.085em;}
+.lsp--090, .lsp--09 { letter-spacing: -0.090em;}
+.lsp--095 { letter-spacing: -0.095em;}
+.lsp--100, .lsp--1 { letter-spacing: -0.100em;}
+.lsp--105 { letter-spacing: -0.105em;}
+/*
+for screen widths < 1024, font scaling stops
+*/
+.siz-9-px, .siz-9, .px-09 { font-size: 9px;}
+.siz-9-vw, .vw-9 { font-size: clamp(9px, 9vw, 13.5px);}
+.siz-09-rm, .rem-9, .rm-9 { font-size: clamp(9px, 9rem, 13.5px);}
+.siz-10-px, .siz-10, .px-10 { font-size: 10px;}
+.siz-10-vw, .vw-10 { font-size: clamp(10px, 10vw, 15px);}
+.siz-10-rm, .rem-10, .rm-10 { font-size: clamp(10px, 10rem, 15px);}
+.siz-11-px, .siz-11, .px-11 { font-size: 11px;}
+.siz-11-vw, .vw-11 { font-size: clamp(11px, 11vw, 16.5px);}
+.siz-11-rm, .rem-11, .rm-11 { font-size: clamp(11px, 11rem, 16.5px);}
+.siz-12-px, .siz-12, .px-12 { font-size: 12px;}
+.siz-12-vw, .vw-12 { font-size: clamp(12px, 12vw, 18px);}
+.siz-12-rm, .rem-12, .rm-12 { font-size: clamp(12px, 12rem, 18px);}
+.siz-13-px, .siz-13, .px-13 { font-size: 13px;}
+.siz-13-vw, .vw-13 { font-size: clamp(13px, 13vw, 19.5px);}
+.siz-13-rm, .rem-13, .rm-13 { font-size: clamp(13px, 13rem, 19.5px);}
+.siz-14-px, .siz-14, .px-14 { font-size: 14px;}
+.siz-14-vw, .vw-14 { font-size: clamp(14px, 14vw, 21px);}
+.siz-14-rm, .rem-14, .rm-14 { font-size: clamp(14px, 14rem, 21px);}
+.siz-15-px, .siz-15, .px-15 { font-size: 15px;}
+.siz-15-vw, .vw-15 { font-size: clamp(14px, 15vw, 22.5px);}
+.siz-15-rm, .rem-15, .rm-15 { font-size: clamp(14px, 15rem, 22.5px);}
+.siz-16-px, .siz-16, .px-16 { font-size: 16px;}
+.siz-16-vw, .vw-16 { font-size: clamp(14px, 16vw, 24px);}
+.siz-16-rm, .rem-16, .rm-16 { font-size: clamp(14px, 16rem, 24px);}
+.siz-17-px, .siz-17, .px-17 { font-size: 17px;}
+.siz-17-vw, .vw-17 { font-size: clamp(15px, 17vw, 17px);}
+.siz-17-rm, .rem-17, .rm-17 { font-size: clamp(15px, 17rem, 17px);}
+.siz-18-px, .siz-18, .px-18 { font-size: 13px;}
+.siz-18-vw, .vw-18 { font-size: clamp(16px, 18vw, 27px);}
+.siz-18-rm, .rem-18, .rm-18 { font-size: clamp(16px, 18rem, 27px);}
+.siz-19-px, .siz-19, .px-19 { font-size: 19px;}
+.siz-19-vw, .vw-19 { font-size: clamp(16.5px, 19vw, 28.5px);}
+.siz-19-rm, .rem-19, .rm-19 { font-size: clamp(16.5px, 19rem, 19px);}
+.siz-20-px, .siz-20, .px-20 { font-size: 20px;}
+.siz-20-vw, .vw-20 { font-size: clamp(17px, 20vw, 30px);}
+.siz-20-rm, .rem-20, .rm-20 { font-size: clamp(17px, 20rem, 30px);}
+.siz-21-px, .siz-21, .px-21 { font-size: 21px;}
+.siz-21-vw, .vw-21 { font-size: clamp(17.5px, 21vw, 31.5px);}
+.siz-21-rm, .rem-21, .rm-21 { font-size: clamp(17.5px, 21rem, 31.5px);}
+.siz-22-px, .siz-22, .px-22 { font-size: 22px;}
+.siz-22-vw, .vw-22 { font-size: clamp(18px, 22vw, 33px);}
+.siz-22-rm, .rem-22, .rm-22 { font-size: clamp(18px, 22rem, 33px);}
+.siz-23-px, .siz-23, .px-23 { font-size: 23px;}
+.siz-23-vw, .vw-23 { font-size: clamp(18.5px, 23vw, 34.5px);}
+.siz-23-rm, .rem-23, .rm-23 { font-size: clamp(18.5px, 23rem, 34.5px);}
+.siz-24-px, .siz-24, .px-24 { font-size: 24px;}
+.siz-24-vw, .vw-24 { font-size: clamp(19px, 24vw, 36px);}
+.siz-24-rm, .rem-24, .rm-24 { font-size: clamp(19px, 24rem, 36px);}
+.siz-27-px, .siz-27, .px-27 { font-size: 27px;}
+.siz-27-vw, .vw-27 { font-size: clamp(20.5px, 27vw, 4.5px);}
+.siz-27-rm, .rem-27, .rm-27 { font-size: clamp(20.5px, 27rem, 4.5px);}
+.siz-28-px, .siz-28, .px-28 { font-size: 28px;}
+.siz-28-vw, .vw-28 { font-size: clamp(21px, 28vw, 42px);}
+.siz-28-rm, .rem-28, .rm-28 { font-size: clamp(21px, 28rem, 42px);}
+
+.siz-32-px, .siz-32, .px-32 { font-size: 32px;}
+.siz-32-vw, .vw-32 { font-size: clamp(23px, 32vw, 48px);}
+.siz-32-rm, .rem-32, .rm-32 { font-size: clamp(23px, 32rem, 48px);}
+.siz-36-px, .siz-36, .px-36 { font-size: 36px;}
+.siz-36-vw, .vw-36 { font-size: clamp(25px, 36vw, 54px);}
+.siz-36-rm, .rem-36, .rm-36 { font-size: clamp(25px, 36rem, 54px);}
+.siz-42-px, .siz-42, .px-42 { font-size: 42px;}
+.siz-42-vw, .vw-42 { font-size: clamp(28px, 42vw, 63px);}
+.siz-42-rm, .rem-42, .rm-42 { font-size: clamp(28px, 42rem, 63px);}
+.siz-48-px, .siz-48, .px-48 { font-size: 48px;}
+.siz-48-vw, .vw-48 { font-size: clamp(31px, 48vw, 72px);}
+.siz-48-rm, .rem-48, .rm-48 { font-size: clamp(31px, 48rem, 72px);}
+.siz-56-px, .siz-56, .px-56 { font-size: 56px;}
+.siz-56-vw, .vw-56 { font-size: clamp(36px, 56vw, 84px);}
+.siz-56-rm, .rem-56, .rm-56 { font-size: clamp(36px, 56rem, 84px);}
+.siz-64-px, .siz-64, .px-64 { font-size: 64px;}
+.siz-64-vw, .vw-64 { font-size: clamp(42px, 64vw, 96px);}
+.siz-64-rm, .rem-64, .rm-64 { font-size: clamp(42px, 64rem, 96px);}
+.siz-72-px, .siz-72, .px-72 { font-size: 72px;}
+.siz-72-vw, .vw-72 { font-size: clamp(48px, 72vw, 108px);}
+.siz-72-rm, .rem-72, .rm-72 { font-size: clamp(48px, 72rem, 108px);}
+
+.tit-700, .tit-bol {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
 }
+.tit-500, .tit-med {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 500;
+}
+.tit-400, .tit-reg {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 400;
+}
+.tit-300, .tit-lig {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 300;
+}
+.tit-200, .tit-eli {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 200;
+}
+
+.nar-700, .nar-bol, .par-700, .par-bol {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 700;
+}
+.nar-500, .nar-mid, .par-500, .par-med {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 500;
+}
+.nar-400, .nar-reg, .par-400, .par-reg {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 400;
+}
+.nar-300, .nar-lig, .par-300, .par-lig {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 300;
+}
+.nar-200, .nar-eli, .par-200, .par-eli {
+  font-family: var(--doopl-text-font-family);
+  font-weight: 200;
+}
+
 .action-button {
   font-family: var(--doopl-title-font-family);
   font-weight: var(--doopl-title-font-weight);
@@ -85,24 +304,6 @@
   vertical-align: top;
 }
 
-.popp-700-32-0-92p-top {
-  font-family: var(--doopl-title-font-family);
-  font-weight: 700;
-  font-size: 32px;
-  letter-spacing: 0;
-  line-height: 92px;
-  vertical-align: top;
-}
-
-.popp-700-48--1d8px-58px-top {
-  font-family: var(--doopl-title-font-family);
-  font-weight: 700;
-  font-size: 48px;
-  letter-spacing: -1.8px;
-  line-height: 58px;
-  vertical-align: top;
-}
-
 .popp-700-73--0-92px-top {
   font-family: var(--doopl-title-font-family);
   font-weight: 700;
@@ -121,6 +322,41 @@
   vertical-align: top;
 }
 
+.popp-700-48--1d8px-58px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: -1.8px;
+  line-height: 58px;
+  vertical-align: top;
+}
+
+.popp-700-48--1d2px-48px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: -1.2px;
+  line-height: 48px;
+  vertical-align: top;
+}
+
+.popp-400-36--1d2-29px-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 400;
+  font-size: 36px;
+  letter-spacing: -1.2px;
+  line-height: 29px;
+  vertical-align: top;
+}
+
+.popp-700-32-0-92p-top {
+  font-family: var(--doopl-title-font-family);
+  font-weight: 700;
+  font-size: 32px;
+  letter-spacing: 0;
+  line-height: 92px;
+  vertical-align: top;
+}
 
 .popp-700-21--0d5px-32px-top {
   font-family: var(--doopl-title-font-family);
@@ -132,12 +368,12 @@
 
 }
 
-.popp-700-48--1d2px-48px-top {
+.popp-700-17--0d2-29px-top {
   font-family: var(--doopl-title-font-family);
   font-weight: 700;
-  font-size: 48px;
-  letter-spacing: -1.2px;
-  line-height: 48px;
+  font-size: 17px;
+  letter-spacing: -0.2px;
+  line-height: 29px;
   vertical-align: top;
 }
 
@@ -150,22 +386,6 @@
   vertical-align: top;
 }
 
-.popp-700-17--0d2-29px-top {
-  font-family: var(--doopl-title-font-family);
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: -0.2px;
-  line-height: 29px;
-  vertical-align: top;
-}
-.popp-400-36--1d2-29px-top {
-  font-family: var(--doopl-title-font-family);
-  font-weight: 400;
-  font-size: 36px;
-  letter-spacing: -1.2px;
-  line-height: 48px;
-  vertical-align: top;
-}
 
 .mont-200-20--0d14-32px-middle {
   font-family: var(--doopl-text-font-family);
@@ -266,6 +486,7 @@
 .t-color {
   color: var(--doopl-color-text-on-secondary,#EEEAF8);
 }
+
 .p-bg-color {
   background: var(--doopl-color-primary,#0A0AF5);
 }
