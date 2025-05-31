@@ -173,6 +173,7 @@ main {
     width: 100%;
     align-items: center;
   }
+  .why-choose-us-main>h2 {text-align: center;}
   .border-ground-iphone {
     right: calc(50% - 108.851px);
   }
