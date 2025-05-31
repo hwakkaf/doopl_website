@@ -45,3 +45,11 @@
   margin-block-start: var(--doopl-header-download-margin-block-start,20rem);
   margin-inline-start: var(--doopl-header-download-margin-inline-start,28.12px);
 }
+
+@media (max-width: 1300px) {
+  .header {
+    justify-content: space-between;
+    flex-wrap: wrap;;
+  }
+  .header-center {display: none}
+}
