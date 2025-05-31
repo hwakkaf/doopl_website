@@ -79,6 +79,7 @@ const templateDooplMain = async (config) => {
   ======================================================== -->
 </head>
 
+
 <body>
   ${widgets.svg.ellipseTop("blurred-spot-top")}
   ${widgets.header(config)}
