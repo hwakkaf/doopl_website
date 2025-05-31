@@ -81,7 +81,7 @@ const templateDooplMain = async (config) => {
 
 <body>
   ${widgets.svg.ellipseTop("blurred-spot-top")}
-  ${html``/*widgets.header(config)*/}
+  ${widgets.header(config)}
   <h1 style="display: none; min-height: 2500px; font-size: 48px; color: white;">JUST BELOW HEADER</h1>
   <main class="flex-ver-st-st">
     ${render? render instanceof Function? render(config) : render : ''}

@@ -6,10 +6,10 @@
     --doopl-bottom-ellipse-width: 58.3333vw; /* 840px, 58.3333vw */
     --doopl-bottom-ellipse-height: 27.9167vw; /* 402px, 27.9167vw */
 
-    --doopl-top-ellipse-width: 704rem; /* 704px, 48.8889vw */
-    --doopl-top-ellipse-height: 526rem; /* 526px, 36.5278vw */
-    --doopl-bottom-ellipse-width: 840rem; /* 840px, 58.3333vw */
-    --doopl-bottom-ellipse-height: 402rem; /* 402px, 27.9167vw */
+    --doopl-top-ellipse-width: 48.8889vw; /* 704px, 48.8889vw */
+    --doopl-top-ellipse-height: 36.5278vw; /* 526px, 36.5278vw */
+    --doopl-bottom-ellipse-width: 58.333vw; /* 840px, 58.3333vw */
+    --doopl-bottom-ellipse-height: 27.9167vw; /* 402px, 27.9167vw */
 
     /* BODY PADDING UNUSED NOW*/
     --doopl-body-padding-inline: 43.44rem;
@@ -50,9 +50,9 @@ html {
   }
 }
 
-@media (min-width: 1680px) {
+@media (min-width: 1440px) {
   html {
-    font-size: calc(1680px / 1440);
+    font-size: calc(1440px / 1440);
   }
 }
 

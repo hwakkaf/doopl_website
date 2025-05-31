@@ -1,8 +1,8 @@
 .footer {
   position: relative;
   z-index: 1;
-  margin-inline-start: 83.98px;
-  margin-block-start: 164.96px;
+  margin-inline-start: 5.832vw; /* 83.98rem, 5.832vw */
+  margin-block-start: 11.456vw; /* 164.96rem, 11.456vw */
 }
 
 .footer-start {
