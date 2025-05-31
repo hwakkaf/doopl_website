@@ -171,7 +171,6 @@ const render = async config => {
       <img class="happy-customers-driving-wheel" src=${happyCustomers.main.images[0].url} width="316.27" height="315.18">
     </div>
 
-    
     <!-- READY TO GET STARTED -->
     <div class="ready-started-container f-c f-a-ce">
       <div class="ready-started f-c f-a-ce f-j-ce">
