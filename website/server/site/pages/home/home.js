@@ -156,7 +156,7 @@ const render = async config => {
       <div class="happy-customers-slides-container">
         <div class="happy-customers-slides f-r">
           ${(happyCustomers.customers || []).map((w,i) => html`
-            <div class="happy-customers-card f-c f-j-sa f-a-ce">
+            <div class="happy-customers-card f-c f-j-sa f-a-ce happy-customers-card-${i}">
               <img class="happy-customers-image" src=${w.images[0]?.url??''} width="83.12" height="88.05">
               <h3 class="tit-700 rm-21 lsp--025 lhi-15 t-on-t-color capitalize">${w.title}</h3>
               <p class="nar-400 rm-17 lsp--01 lhi-17 n-on-t-color txt-cen">

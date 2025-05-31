@@ -426,8 +426,8 @@ main {
   min-width: 300px;
   width: 100%;
   border: none;
-  row-gap: 132.15px;
-  margin-block-end: 301.72px;
+  row-gap: 132.15rem;
+  margin-block-end: 301.72rem;
 }
 
 .happy-customers-header {
@@ -477,6 +477,11 @@ main {
   padding-block: 60px;
   width: 350px;
 }
+.happy-customers-card-1 { opacity: 0.7;}
+.happy-customers-card-2 { opacity: 0.5;}
+.happy-customers-card-3 { opacity: 0.3;}
+.happy-customers-card-4 { opacity: 0.2;}
+.happy-customers-card-5 { opacity: 0.2;}
 .happy-customers-driving-wheel {
     position: absolute;
     bottom: -262.53rem;
